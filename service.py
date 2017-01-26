@@ -59,7 +59,7 @@ fmttypes = {'Byte':'B', 'UInt16':'H', 'Int16':'h', 'UInt32':'I',
             'Int32':'i', 'Float32':'f', 'Float64':'d'}	
 	
 
-@route('/service')
+@route('/service' , method='POST')
 def service():
 	if not request.query.range:
 		if request.query.scenario == "historical":
@@ -114,7 +114,7 @@ def service():
 				print 'Failed open file'
 				sys.exit(1)
 		bands = ds.RasterCount
-		
+
 		if request.query.geojson:
 			file = '/tmp/cwizard'+time.strftime("%H:%M:%S")+'.geojson'
 			with open(file, 'w') as file_:
