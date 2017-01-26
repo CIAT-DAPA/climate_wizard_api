@@ -1,8 +1,18 @@
 from osgeo import gdal,ogr
 from osgeo.gdalconst import *
 import struct
+import time
 import sys,os, fnmatch
 from bottle import route, request, response, template, run
+import simplejson
+import json
+import sys
+import numpy as np
+import rasterio
+from rasterstats import zonal_stats, raster_stats
+from rasterstats.utils import VALID_STATS
+from rasterstats.io import read_featurecollection, read_features
+import fiona
 
 def find(pattern, path):
     result = ""
@@ -99,51 +109,66 @@ def service():
 		period = acroIndex[4].split("-")
 		startDate = int(acroIndex[4].split("-")[0])
 		json_output = {'name' : index[request.query.index.lower()], 'acronym':request.query.index,'model':wgcm,'scenario':request.query.scenario ,'values':[]}
-		lat = float(request.query.lat)
-		lon = float(request.query.lon)
 		ds = gdal.Open(folder+name[1], GA_ReadOnly)
-		transf = ds.GetGeoTransform()
-
-		px = (lon-transf[0])/transf[1]
-		py = (lat-transf[3])/transf[5]
-
 		if ds is None:
-			print 'Failed open file'
-			sys.exit(1)
-
+				print 'Failed open file'
+				sys.exit(1)
 		bands = ds.RasterCount
-		if wrange and wrange != "false":
-			avg = 0
+		
+		if request.query.geojson:
+			file = '/tmp/cwizard'+time.strftime("%H:%M:%S")+'.geojson'
+			with open(file, 'w') as file_:
+				file_.write(request.query.geojson)
+
 			for band in range( bands ):
 				band += 1
-				if int(wrange[0]) <= int(band+startDate-1) <= int(wrange[1]):
+				with fiona.open(file) as src:
+					zs = zonal_stats(src, name[1], band=band,stats=['min', 'max', 'median', 'mean', 'sum'])
+
+				output_item = {'date' : int(band+startDate-1) , 'value' : float(zs[0]['mean'])}
+				json_output['values'].append(output_item)
+			return json_output
+		else:
+			lat = float(request.query.lat)
+			lon = float(request.query.lon)
+			
+			transf = ds.GetGeoTransform()
+
+			px = (lon-transf[0])/transf[1]
+			py = (lat-transf[3])/transf[5]
+
+			if wrange and wrange != "false":
+				avg = 0
+				for band in range( bands ):
+					band += 1
+					if int(wrange[0]) <= int(band+startDate-1) <= int(wrange[1]):
+						srcband = ds.GetRasterBand(band)
+						structval = srcband.ReadRaster(int(px), int(py), 1, 1, buf_type=srcband.DataType )
+						bandtype = gdal.GetDataTypeName(srcband.DataType)
+						intval = struct.unpack(fmttypes[bandtype] , structval)
+						if wavg:
+							avg += (round((float(intval[0])/100),2))+factor
+						else:
+							output_item = {'date' : int(band+startDate-1) , 'value' : ((round((float(intval[0])/100),2))+factor)-baselineAvg}
+							json_output['values'].append(output_item)
+				if avg != 0 and wavg:
+					avg = (avg / (int(wrange[1]) - int(wrange[0]) + 1)) - baselineAvg +factor
+					output_item = {'date' : 'avg_'+wrange[0]+"-"+wrange[1] , 'value' : str(avg)}
+					json_output['values'].append(output_item)
+				elif avg == 0 and wavg:
+					output_item = {'date' : 'avg_'+wrange[0]+"-"+wrange[1] , 'value' : 'out of range'}
+					json_output['values'].append(output_item)
+				return json_output
+
+			else:
+				for band in range( bands ):
+					band += 1
 					srcband = ds.GetRasterBand(band)
 					structval = srcband.ReadRaster(int(px), int(py), 1, 1, buf_type=srcband.DataType )
 					bandtype = gdal.GetDataTypeName(srcband.DataType)
 					intval = struct.unpack(fmttypes[bandtype] , structval)
-					if wavg:
-						avg += (round((float(intval[0])/100),2))+factor
-					else:
-						output_item = {'date' : int(band+startDate-1) , 'value' : ((round((float(intval[0])/100),2))+factor)-baselineAvg}
-						json_output['values'].append(output_item)
-			if avg != 0 and wavg:
-				avg = (avg / (int(wrange[1]) - int(wrange[0]) + 1)) - baselineAvg +factor
-				output_item = {'date' : 'avg_'+wrange[0]+"-"+wrange[1] , 'value' : str(avg)}
-				json_output['values'].append(output_item)
-			elif avg == 0 and wavg:
-				output_item = {'date' : 'avg_'+wrange[0]+"-"+wrange[1] , 'value' : 'out of range'}
-				json_output['values'].append(output_item)
-			return json_output
-
-		else:
-			for band in range( bands ):
-				band += 1
-				srcband = ds.GetRasterBand(band)
-				structval = srcband.ReadRaster(int(px), int(py), 1, 1, buf_type=srcband.DataType )
-				bandtype = gdal.GetDataTypeName(srcband.DataType)
-				intval = struct.unpack(fmttypes[bandtype] , structval)
-				output_item = {'date' : int(band+startDate-1) , 'value' : ((round((float(intval[0])/100),2))+factor)-baselineAvg}
-				json_output['values'].append(output_item)
-			return json_output
+					output_item = {'date' : int(band+startDate-1) , 'value' : ((round((float(intval[0])/100),2))+factor)-baselineAvg}
+					json_output['values'].append(output_item)
+				return json_output
 	else :
 		return {"error":"Data not found"}
