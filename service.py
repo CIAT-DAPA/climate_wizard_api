@@ -38,7 +38,7 @@ def calcAvg (file, folder,wrange, lat, lon):
 			structval = srcband.ReadRaster(int(px), int(py), 1, 1, buf_type=srcband.DataType )
 			bandtype = gdal.GetDataTypeName(srcband.DataType)
 			intval = struct.unpack(fmttypes[bandtype] , structval)
-			avg += float(intval[0])/100
+			avg += round((float(intval[0])/100),2)
 
 	if avg != 0:
 		avg = avg / (int(wrange[1]) - int(wrange[0]) + 1)
@@ -78,8 +78,7 @@ def service():
 		factor=0
 		
 	fileName = request.query.index+"_BCSD_"+request.query.scenario+"_"+wgcm
-	# folderModels = "/mnt/data_climatewizard/AR5_Global_Daily_25k/out_stats_tiff/"
-	folderModels = "/media/camilo/Data/camilo/proyectos/WOCAT/"
+	folderModels = "/mnt/data_climatewizard/AR5_Global_Daily_25k/out_stats_tiff/"
 	folder = folderModels+wgcm+"/"
 	allfiles = find(fileName+"*", folder)
 	baselineAvg = 0
@@ -123,9 +122,9 @@ def service():
 					bandtype = gdal.GetDataTypeName(srcband.DataType)
 					intval = struct.unpack(fmttypes[bandtype] , structval)
 					if wavg:
-						avg += (float(intval[0])/100)+factor
+						avg += (round((float(intval[0])/100),2))+factor
 					else:
-						output_item = {'date' : int(band+startDate-1) , 'value' : ((float(intval[0])/100)+factor)-baselineAvg}
+						output_item = {'date' : int(band+startDate-1) , 'value' : ((round((float(intval[0])/100),2))+factor)-baselineAvg}
 						json_output['values'].append(output_item)
 			if avg != 0 and wavg:
 				avg = (avg / (int(wrange[1]) - int(wrange[0]) + 1)) - baselineAvg +factor
@@ -143,10 +142,8 @@ def service():
 				structval = srcband.ReadRaster(int(px), int(py), 1, 1, buf_type=srcband.DataType )
 				bandtype = gdal.GetDataTypeName(srcband.DataType)
 				intval = struct.unpack(fmttypes[bandtype] , structval)
-				output_item = {'date' : int(band+startDate-1) , 'value' : ((float(intval[0])/100)+factor)-baselineAvg}
+				output_item = {'date' : int(band+startDate-1) , 'value' : ((round((float(intval[0])/100),2))+factor)-baselineAvg}
 				json_output['values'].append(output_item)
 			return json_output
 	else :
 		return {"error":"Data not found"}
-
-run(host='0.0.0.0', port=8080, debug=True)
