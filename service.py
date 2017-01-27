@@ -109,10 +109,18 @@ def service():
 			with open(file, 'w') as file_:
 				file_.write(request.query.geojson)
 
+			if request.query.stats:
+				tstats = request.query.stats.split(",")
+				rstats = []
+				for stat in tstats:
+					rstats.append(stat)
+			else :
+				rstats = ['min', 'max', 'median', 'mean', 'std','percentile_5','percentile_25','percentile_75','percentile_95']
+
 			for band in range( bands ):
 				band += 1
 				with fiona.open(file) as src:
-					zs = zonal_stats(src, folder+name[1], band=band,stats=['min', 'max', 'median', 'mean', 'sum'])
+					zs = zonal_stats(src, folder+name[1], band=band,stats=rstats)
 
 				output_item = {'date' : int(band+startDate-1) , 'value' : float(zs[0]['mean'])}
 				json_output['values'].append(output_item)
@@ -223,10 +231,18 @@ def do_service():
 			with open(file, 'w') as file_:
 				file_.write(request.query.geojson)
 
+			if request.query.stats:
+				tstats = request.query.stats.split(",")
+				rstats = []
+				for stat in tstats:
+					rstats.append(stat)
+			else :
+				rstats = ['min', 'max', 'median', 'mean', 'std','percentile_5','percentile_25','percentile_75','percentile_95']
+				
 			for band in range( bands ):
 				band += 1
 				with fiona.open(file) as src:
-					zs = zonal_stats(src, folder+name[1], band=band,stats=['min', 'max', 'median', 'mean', 'sum'])
+					zs = zonal_stats(src, folder+name[1], band=band,stats=rstats)
 
 				output_item = {'date' : int(band+startDate-1) , 'value' : float(zs[0]['mean'])}
 				json_output['values'].append(output_item)
