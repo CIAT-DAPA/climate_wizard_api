@@ -286,4 +286,3 @@ def do_service():
 				return json_output
 	else :
 		return {"error":"Data not found"}
-run(host='0.0.0.0', port=8080, debug=True)
