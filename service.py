@@ -122,7 +122,7 @@ def service():
 				with fiona.open(file) as src:
 					zs = zonal_stats(src, folder+name[1], band=band,stats=rstats)
 
-				output_item = {'date' : int(band+startDate-1) , 'value' : float(zs[0]['mean'])}
+				output_item = {'date' : int(band+startDate-1) , 'value' : zs[0]}
 				json_output['values'].append(output_item)
 			return json_output
 		else:
@@ -238,13 +238,13 @@ def do_service():
 					rstats.append(stat)
 			else :
 				rstats = ['min', 'max', 'median', 'mean', 'std','percentile_5','percentile_25','percentile_75','percentile_95']
-				
+
 			for band in range( bands ):
 				band += 1
 				with fiona.open(file) as src:
 					zs = zonal_stats(src, folder+name[1], band=band,stats=rstats)
 
-				output_item = {'date' : int(band+startDate-1) , 'value' : float(zs[0]['mean'])}
+				output_item = {'date' : int(band+startDate-1) , 'value' : zs[0]}
 				json_output['values'].append(output_item)
 			return json_output
 		else:
