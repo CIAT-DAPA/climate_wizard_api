@@ -112,7 +112,7 @@ def service():
 			for band in range( bands ):
 				band += 1
 				with fiona.open(file) as src:
-					zs = zonal_stats(src, name[1], band=band,stats=['min', 'max', 'median', 'mean', 'sum'])
+					zs = zonal_stats(src, folder+name[1], band=band,stats=['min', 'max', 'median', 'mean', 'sum'])
 
 				output_item = {'date' : int(band+startDate-1) , 'value' : float(zs[0]['mean'])}
 				json_output['values'].append(output_item)
@@ -205,17 +205,6 @@ def do_service():
 	folderModels = "/mnt/data_climatewizard/AR5_Global_Daily_25k/out_stats_tiff/"
 	folder = folderModels+wgcm+"/"
 	allfiles = find(fileName+"*", folder)
-	baselineAvg = 0
-	if request.query.baseline:
-		wbaseline = request.query.baseline.split("-")
-		if (int(wbaseline[1]) - int(wbaseline[0])) < 19 :
-			return {"error":"Baseline range must be equal or greater than 20 years"}
-		elif request.query.scenario == "historical":
-			return {"error":"Scenario must be different to historical"}
-		else:
-			baseFileName = request.query.index+"_BCSD_historical_"+wgcm
-			baseFile = find(baseFileName+"*", folder)
-			baselineAvg = calcAvg (baseFile, folder, wbaseline, float(request.query.lat), float(request.query.lon))
 
 	if allfiles:
 		name = allfiles.split(folder)
@@ -237,16 +226,27 @@ def do_service():
 			for band in range( bands ):
 				band += 1
 				with fiona.open(file) as src:
-					zs = zonal_stats(src, name[1], band=band,stats=['min', 'max', 'median', 'mean', 'sum'])
+					zs = zonal_stats(src, folder+name[1], band=band,stats=['min', 'max', 'median', 'mean', 'sum'])
 
 				output_item = {'date' : int(band+startDate-1) , 'value' : float(zs[0]['mean'])}
 				json_output['values'].append(output_item)
 			return json_output
 		else:
-			lat = float(request.query.lat)
-			lon = float(request.query.lon)
-			
-			transf = ds.GetGeoTransform()
+			baselineAvg = 0
+			if request.query.baseline:
+				wbaseline = request.query.baseline.split("-")
+				if (int(wbaseline[1]) - int(wbaseline[0])) < 19 :
+					return {"error":"Baseline range must be equal or greater than 20 years"}
+				elif request.query.scenario == "historical":
+					return {"error":"Scenario must be different to historical"}
+				else:
+					baseFileName = request.query.index+"_BCSD_historical_"+wgcm
+					baseFile = find(baseFileName+"*", folder)
+					baselineAvg = calcAvg (baseFile, folder, wbaseline, float(request.query.lat), float(request.query.lon))
+					lat = float(request.query.lat)
+					lon = float(request.query.lon)
+					
+					transf = ds.GetGeoTransform()
 
 			px = (lon-transf[0])/transf[1]
 			py = (lat-transf[3])/transf[5]
