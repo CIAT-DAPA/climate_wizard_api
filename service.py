@@ -91,17 +91,6 @@ def service():
 	folderModels = "/mnt/data_climatewizard/AR5_Global_Daily_25k/out_stats_tiff/"
 	folder = folderModels+wgcm+"/"
 	allfiles = find(fileName+"*", folder)
-	baselineAvg = 0
-	if request.query.baseline:
-		wbaseline = request.query.baseline.split("-")
-		if (int(wbaseline[1]) - int(wbaseline[0])) < 19 :
-			return {"error":"Baseline range must be equal or greater than 20 years"}
-		elif request.query.scenario == "historical":
-			return {"error":"Scenario must be different to historical"}
-		else:
-			baseFileName = request.query.index+"_BCSD_historical_"+wgcm
-			baseFile = find(baseFileName+"*", folder)
-			baselineAvg = calcAvg (baseFile, folder, wbaseline, float(request.query.lat), float(request.query.lon))
 
 	if allfiles:
 		name = allfiles.split(folder)
@@ -129,6 +118,17 @@ def service():
 				json_output['values'].append(output_item)
 			return json_output
 		else:
+			baselineAvg = 0
+			if request.query.baseline:
+				wbaseline = request.query.baseline.split("-")
+				if (int(wbaseline[1]) - int(wbaseline[0])) < 19 :
+					return {"error":"Baseline range must be equal or greater than 20 years"}
+				elif request.query.scenario == "historical":
+					return {"error":"Scenario must be different to historical"}
+				else:
+					baseFileName = request.query.index+"_BCSD_historical_"+wgcm
+					baseFile = find(baseFileName+"*", folder)
+					baselineAvg = calcAvg (baseFile, folder, wbaseline, float(request.query.lat), float(request.query.lon))
 			lat = float(request.query.lat)
 			lon = float(request.query.lon)
 			
@@ -286,3 +286,4 @@ def do_service():
 				return json_output
 	else :
 		return {"error":"Data not found"}
+run(host='0.0.0.0', port=8080, debug=True)
