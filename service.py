@@ -62,7 +62,7 @@ fmttypes = {'Byte':'B', 'UInt16':'H', 'Int16':'h', 'UInt32':'I',
 @get('/service')
 def service():
 	if not request.query.range:
-		if request.query.scenario == "historical":
+		if request.query.scenario.lower() == "historical":
 			wrange = ["1976","2005"]
 		else:
 			wrange = ["2040","2069"]
@@ -74,7 +74,7 @@ def service():
 	if not request.query.gcm:
 		wgcm = "ensemble_lowest"
 	else:
-		wgcm = request.query.gcm
+		wgcm = request.query.gcm.lower()
 
 	if not request.query.avg or request.query.avg == "true":
 		wavg = True
@@ -82,12 +82,12 @@ def service():
 		wavg = False
 
 	# for convert to celsius
-	if request.query.index=="TXAVG" or request.query.index=="TNAVG" or request.query.index=="TXX" or request.query.index=="TNN":
+	if request.query.index.lower()=="txavg" or request.query.index.lower()=="tnavg" or request.query.index.lower()=="txx" or request.query.index.lower()=="tnn":
 		factor=-273.15 
 	else:
 		factor=0
 		
-	fileName = request.query.index+"_BCSD_"+request.query.scenario+"_"+wgcm
+	fileName = request.query.index.lower()+"_bcsd_"+request.query.scenario.lower()+"_"+wgcm
 	folderModels = "/mnt/data_climatewizard/AR5_Global_Daily_25k/out_stats_tiff/"
 	folder = folderModels+wgcm+"/"
 	allfiles = find(fileName+"*", folder)
@@ -97,7 +97,7 @@ def service():
 		acroIndex = name[1].split("_")
 		period = acroIndex[4].split("-")
 		startDate = int(acroIndex[4].split("-")[0])
-		json_output = {'name' : index[request.query.index.lower()], 'acronym':request.query.index,'model':wgcm,'scenario':request.query.scenario ,'values':[]}
+		json_output = {'name' : index[request.query.index.lower()], 'acronym':request.query.index,'model':wgcm,'scenario':request.query.scenario.lower() ,'values':[]}
 		ds = gdal.Open(folder+name[1], GA_ReadOnly)
 		if ds is None:
 				print 'Failed open file'
@@ -131,10 +131,10 @@ def service():
 				wbaseline = request.query.baseline.split("-")
 				if (int(wbaseline[1]) - int(wbaseline[0])) < 19 :
 					return {"error":"Baseline range must be equal or greater than 20 years"}
-				elif request.query.scenario == "historical":
+				elif request.query.scenario.lower() == "historical":
 					return {"error":"Scenario must be different to historical"}
 				else:
-					baseFileName = request.query.index+"_BCSD_historical_"+wgcm
+					baseFileName = request.query.index.lower()+"_bcsd_historical_"+wgcm
 					baseFile = find(baseFileName+"*", folder)
 					baselineAvg = calcAvg (baseFile, folder, wbaseline, float(request.query.lat), float(request.query.lon))
 			lat = float(request.query.lat)
@@ -184,7 +184,7 @@ def service():
 @post('/service')
 def do_service():
 	if not request.query.range:
-		if request.query.scenario == "historical":
+		if request.query.scenario.lower() == "historical":
 			wrange = ["1976","2005"]
 		else:
 			wrange = ["2040","2069"]
@@ -196,7 +196,7 @@ def do_service():
 	if not request.query.gcm:
 		wgcm = "ensemble_lowest"
 	else:
-		wgcm = request.query.gcm
+		wgcm = request.query.gcm.lower()
 
 	if not request.query.avg or request.query.avg == "true":
 		wavg = True
@@ -204,12 +204,12 @@ def do_service():
 		wavg = False
 
 	# for convert to celsius
-	if request.query.index=="TXAVG" or request.query.index=="TNAVG" or request.query.index=="TXX" or request.query.index=="TNN":
+	if request.query.index.lower()=="TXAVG" or request.query.index.lower()=="TNAVG" or request.query.index.lower()=="TXX" or request.query.index.lower()=="TNN":
 		factor=-273.15 
 	else:
 		factor=0
 		
-	fileName = request.query.index+"_BCSD_"+request.query.scenario+"_"+wgcm
+	fileName = request.query.index+"_BCSD_"+request.query.scenario.lower()+"_"+wgcm
 	folderModels = "/mnt/data_climatewizard/AR5_Global_Daily_25k/out_stats_tiff/"
 	folder = folderModels+wgcm+"/"
 	allfiles = find(fileName+"*", folder)
@@ -219,7 +219,7 @@ def do_service():
 		acroIndex = name[1].split("_")
 		period = acroIndex[4].split("-")
 		startDate = int(acroIndex[4].split("-")[0])
-		json_output = {'name' : index[request.query.index.lower()], 'acronym':request.query.index,'model':wgcm,'scenario':request.query.scenario ,'values':[]}
+		json_output = {'name' : index[request.query.index.lower()], 'acronym':request.query.index,'model':wgcm,'scenario':request.query.scenario.lower() ,'values':[]}
 		ds = gdal.Open(folder+name[1], GA_ReadOnly)
 		if ds is None:
 				print 'Failed open file'
@@ -253,10 +253,10 @@ def do_service():
 				wbaseline = request.query.baseline.split("-")
 				if (int(wbaseline[1]) - int(wbaseline[0])) < 19 :
 					return {"error":"Baseline range must be equal or greater than 20 years"}
-				elif request.query.scenario == "historical":
+				elif request.query.scenario.lower() == "historical":
 					return {"error":"Scenario must be different to historical"}
 				else:
-					baseFileName = request.query.index+"_BCSD_historical_"+wgcm
+					baseFileName = request.query.index.lower()+"_bcsd_historical_"+wgcm
 					baseFile = find(baseFileName+"*", folder)
 					baselineAvg = calcAvg (baseFile, folder, wbaseline, float(request.query.lat), float(request.query.lon))
 					lat = float(request.query.lat)
