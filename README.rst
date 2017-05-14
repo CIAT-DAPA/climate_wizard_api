@@ -51,98 +51,103 @@ Example #1
 ----------
 http://maprooms.ciat.cgiar.org/climatewizard/service?lat=9.58&lon=-74.41&index=CD18&scenario=rcp45&gcm=ACCESS1-0
 
-```
 Output:
 
-{
-acronym: "CD18",
-model: "ACCESS1-0",
--values: (1)[
--{
-date: "avg_2040-2069",
-value: "464847.6"
-}
-],
-name: "cooling degree days",
-scenario: "rcp45"
-}
-```
+.. code-block::
+
+	{
+	acronym: "CD18",
+	model: "ACCESS1-0",
+	-values: (1)[
+	-{
+	date: "avg_2040-2069",
+	value: "464847.6"
+	}
+	],
+	name: "cooling degree days",
+	scenario: "rcp45"
+	}
+
 Example #2
 ----------
 http://maprooms.ciat.cgiar.org/climatewizard/service?lat=9.58&lon=-74.41&index=CD18&scenario=rcp45&gcm=ACCESS1-0&range=false
 
-```
+
 Output:
 
-{
-acronym: "CD18",
-model: "ACCESS1-0",
--values: (94)[
--{
-date: 2006,
-value: 411926
-},
--{
-date: 2007,
-value: 433230
-},
+.. code-block::
 
-ETC …
+    {
+    acronym: "CD18",
+    model: "ACCESS1-0",
+    -values: (94)[
+    -{
+    date: 2006,
+    value: 411926
+    },
+    -{
+    date: 2007,
+    value: 433230
+    },
 
--{
-date: 2098,
-value: 516298
-},
--{
-date: 2099,
-value: 500290
-}
-],
-name: "cooling degree days",
-scenario: "rcp45"
-}
-```
+    ETC …
+
+    -{
+    date: 2098,
+    value: 516298
+    },
+    -{
+    date: 2099,
+    value: 500290
+    }
+    ],
+    name: "cooling degree days",
+    scenario: "rcp45"
+    }
+
 
 Example #3
 ----------
 http://maprooms.ciat.cgiar.org/climatewizard/service?lat=9.58&lon=-74.41&index=CD18&scenario=historical&gcm=ACCESS1-0&range=1960-1970&avg=false
 
-```
-Output
 
-{
-acronym: "CD18",
-model: "ACCESS1-0",
--values: (6)[
--{
-date: 1960,
-value: 3937.16
-},
--{
-date: 1961,
-value: 3869.43
-},
--{
-date: 1962,
-value: 3792.88
-},
--{
-date: 1963,
-value: 3761.62
-},
--{
-date: 1964,
-value: 3633.05
-},
--{
-date: 1965,
-value: 3933.23
-}
-],
-name: "cooling degree days",
-scenario: "historical"
-}
-```
+Output:
+
+.. code-block::
+
+    {
+    acronym: "CD18",
+    model: "ACCESS1-0",
+    -values: (6)[
+    -{
+    date: 1960,
+    value: 3937.16
+    },
+    -{
+    date: 1961,
+    value: 3869.43
+    },
+    -{
+    date: 1962,
+    value: 3792.88
+    },
+    -{
+    date: 1963,
+    value: 3761.62
+    },
+    -{
+    date: 1964,
+    value: 3633.05
+    },
+    -{
+    date: 1965,
+    value: 3933.23
+    }
+    ],
+    name: "cooling degree days",
+    scenario: "historical"
+    }
+
 
 Installing the REST API
 -----------------------
@@ -168,14 +173,15 @@ File /var/www/html/yourapp/app.wsgi:
 
 The Apache configuration may look like this:
 
-```
-WSGIDaemonProcess yourapp user=ubuntu group=ubuntu processes=1 threads=5
-application-group=%{GLOBAL}
-WSGIScriptAlias /climate /var/www/html/yourapp/app.wsgi
-<Directory /var/www/html/yourapp/app.wsgi>
-  WSGIProcessGroup %{GLOBAL}
-  WSGIApplicationGroup %{GLOBAL}
-  Order deny,allow
-  Allow from all
-</Directory>
-```
+.. code-block::
+
+    WSGIDaemonProcess yourapp user=ubuntu group=ubuntu processes=1 threads=5
+    application-group=%{GLOBAL}
+    WSGIScriptAlias /climate /var/www/html/yourapp/app.wsgi
+    <Directory /var/www/html/yourapp/app.wsgi>
+      WSGIProcessGroup %{GLOBAL}
+      WSGIApplicationGroup %{GLOBAL}
+      Order deny,allow
+      Allow from all
+    </Directory>
+
