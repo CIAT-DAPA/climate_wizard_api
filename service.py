@@ -119,11 +119,12 @@ def service():
 
 			for band in range( bands ):
 				band += 1
-				with fiona.open(file) as src:
-					zs = zonal_stats(src, folder+name[1], band=band,stats=rstats)
+				if int(wrange[0]) <= int(band+startDate-1) <= int(wrange[1]):
+					with fiona.open(file) as src:
+						zs = zonal_stats(src, folder+name[1], band=band,stats=rstats)
 
-				output_item = {'date' : int(band+startDate-1) , 'value' : zs[0]}
-				json_output['values'].append(output_item)
+					output_item = {'date' : int(band+startDate-1) , 'value' : zs[0]}
+					json_output['values'].append(output_item)
 			return json_output
 		else:
 			baselineAvg = 0
@@ -241,11 +242,12 @@ def do_service():
 
 			for band in range( bands ):
 				band += 1
-				with fiona.open(file) as src:
-					zs = zonal_stats(src, folder+name[1], band=band,stats=rstats)
+				if int(wrange[0]) <= int(band+startDate-1) <= int(wrange[1]):
+					with fiona.open(file) as src:
+						zs = zonal_stats(src, folder+name[1], band=band,stats=rstats)
 
-				output_item = {'date' : int(band+startDate-1) , 'value' : zs[0]}
-				json_output['values'].append(output_item)
+					output_item = {'date' : int(band+startDate-1) , 'value' : zs[0]}
+					json_output['values'].append(output_item)
 			return json_output
 		else:
 			baselineAvg = 0

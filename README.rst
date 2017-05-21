@@ -150,7 +150,7 @@ Output:
 
 
 Installing the REST API
------------------------
+=======================
 The REST API deploys as a standard webapp for your servlet container / apache.
 The technology used is python, specifically the libraries GDAL and Bottle.
 
