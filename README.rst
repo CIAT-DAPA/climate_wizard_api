@@ -347,59 +347,107 @@ The Apache configuration may look like this:
 
 **Table 1** Indices, acronyms and units used in the REST API
 
-========  ===========  =======
-Acronyms  Description  Units
-========  ===========  =======
-TXX     Annual maximum temperatures     Celsius degrees
-txxi    Monthly maximum temperatures for month i (e.g. txx1, txx2, txx3, … txx12)   Celsius degrees
-TNN     Annual minimum temperatures     Celsius degrees
-tnni    Monthly minimum temperatures for month i (e.g. tnn1, tnn2, tnn3, … tnn12)   Celsius degrees
-tasmax  Annual mean maximum temperatures Celsius degrees
-tasmaxi Monthly mean maximum temperatures for month i (e.g. tasmax1, tasmax2, tasmax3, … tasmax12)  Celsius degrees
-tasmin  Annual mean minimum temperatures    Celsius degrees
-tasmini     Monthly mean minimum temperatures for month i (e.g. tasmin1, tasmin2, tasmin3, … tasmin12)  Celsius degrees
-tas     Annual mean average temperatures    Celsius degrees
-tasi    Monthly mean average temperatures for month i (e.g. tas1, tas2, tas3, … tas12)  Celsius degrees
-TDJF    Mean temperatures for DJF season    Celsius degrees
-TMAM    Mean temperatures for MAM season    Celsius degrees
-TJJA    Mean temperatures for JJA season    Celsius degrees
-TSON    Mean temperatures for SON season    Celsius degrees
-TWET    Mean wet / rainy season temperatures    Celsius degrees
-TDRY    Dry season temperatures     Celsius degrees
-PTOT    Total precipitation     Millimeters/year
-pri     Monthly accumulated precipitation for month i (e.g. pr1, pr2, pr3, … pr12)      Millimeters/month
-PDJF    Accumulated precipitation for DJF season    Millimeters/season
-PMAM    Accumulated precipitation for MAM season    Millimeters/season
-PJJA    Accumulated precipitation for JJA season    Millimeters/season
-PSON    Accumulated precipitation for SON season    Millimeters/season
-PWET    Wet/rainy season accumulated precipitation  Millimeters/season
-PDRY    Dry season accumulated precipitation        Millimeters/season
-SDII    Annual simple daily precipitation intensity index   Millimeters/day
-sdiii   Monthly simple daily precipitation intensity index for month i (e.g. sdii1, sdii2, sdii3, … sdii12)     Millimeters/day
-SDIIDJF     Simple daily precipitation intensity index for DJF season   Millimeters/day
-SDIIMAM     Simple daily precipitation intensity index for MAM season   Millimeters/day
-SDIIJJA     Simple daily precipitation intensity index for JJA season   Millimeters/day
-SDIISON     Simple daily precipitation intensity index for SON season   Millimeters/day
-SDIIDRY     Dry season simple daily precipitation intensity index       Millimeters/day
-SDIIWET     Wet/rainy season simple daily precipitation intensity index     Millimeters/day
-R02     Annual number of wet days > 0.2 mm/day  Number of days
-R02i    Monthly number of wet days > 0.2 mm/day for month i (e.g. r021, r022, r023, … r0212)    Number of days
-R02DJF  Number of wet days > 0.2 mm/day for DJF season  Number of days
-R02MAM  Number of wet days > 0.2 mm/day for MAM season   Number of days
-R02JJA  Number of wet days > 0.2 mm/day for JJA season      Number of days
-R02SON  Number of wet days > 0.2 mm/day for SON season      Number of days
-R02WET  Wet/rainy season number of wet days > 0.2 mm/day    Number of days
-R02DRY  Dry season number of wet days > 0.2 mm/day      Number of days
-R5D     Maximum consecutive 5-day of precipitation  Integer
-CD18    Cooling degree days     Number of days
-CDD     Consecutive dry days Integer
-DROI    Standardized precipitation index (SPI)  Float
-DROF    Monthly frequency of SPI < -1.5 (Severe dryness) by year    Probability of occurrence
-GSL     Growing period length   Number of days
-GD10    Growing degree days     Number of days
-HD18    Heating degree days     Number of days
-HWDI    Heat wave duration index    Number of days
-========  ===========  =======
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+|Acronyms  | Description                                                                                          |     Units                 |
++==========+======================================================================================================+===========================+
+| TXX      | Annual maximum temperatures                                                                          | Celsius degrees           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| txxi     | Monthly maximum temperatures for month i (e.g. txx1, txx2, txx3, … txx12)                            | Celsius degrees           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| TNN      | Annual minimum temperatures                                                                          | Celsius degrees           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| tnni     | Monthly minimum temperatures for month i (e.g. tnn1, tnn2, tnn3, … tnn12)                            | Celsius degrees           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| tasmax   | Annual mean maximum temperatures                                                                     | Celsius degrees           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| tasmaxi  | Monthly mean maximum temperatures for month i (e.g. tasmax1, tasmax2, tasmax3, … tasmax12)           | Celsius degrees           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| tasmin   | Annual mean minimum temperatures                                                                     | Celsius degrees           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| tasmini  | Monthly mean minimum temperatures for month i (e.g. tasmin1, tasmin2, tasmin3, … tasmin12)           | Celsius degrees           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| tas      | Annual mean average temperatures                                                                     | Celsius degrees           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| tasi     | Monthly mean average temperatures for month i (e.g. tas1, tas2, tas3, … tas12)                       | Celsius degrees           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| TDJF     | Mean temperatures for DJF season                                                                     | Celsius degrees           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| TMAM     | Mean temperatures for MAM season                                                                     | Celsius degrees           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| TJJA     | Mean temperatures for JJA season                                                                     | Celsius degrees           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| TSON     | Mean temperatures for SON season                                                                     | Celsius degrees           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| TWET     | Mean wet / rainy season temperatures                                                                 | Celsius degrees           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| TDRY     | Dry season temperatures                                                                              | Celsius degrees           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| PTOT     | Total precipitation                                                                                  | Millimeters/year          |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| pri      | Monthly accumulated precipitation for month i (e.g. pr1, pr2, pr3, … pr12)                           | Millimeters/month         |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| PDJF     | Accumulated precipitation for DJF season                                                             | Millimeters/season        |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| PMAM     | Accumulated precipitation for MAM season                                                             | Millimeters/season        |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| PJJA     | Accumulated precipitation for JJA season                                                             | Millimeters/season        |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| PSON     | Accumulated precipitation for SON season                                                             | Millimeters/season        |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| PWET     | Wet/rainy season accumulated precipitation                                                           | Millimeters/season        |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| PDRY     | Dry season accumulated precipitation                                                                 | Millimeters/season        |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| SDII     | Annual simple daily precipitation intensity index                                                    | Millimeters/day           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| sdiii    | Monthly simple daily precipitation intensity index for month i (e.g. sdii1, sdii2, sdii3, … sdii12)  | Millimeters/day           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| SDIIDJF  | Simple daily precipitation intensity index for DJF season                                            | Millimeters/day           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| SDIIMAM  | Simple daily precipitation intensity index for MAM season                                            | Millimeters/day           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| SDIIJJA  | Simple daily precipitation intensity index for JJA season                                            | Millimeters/day           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| SDIISON  | Simple daily precipitation intensity index for SON season                                            | Millimeters/day           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| SDIIDRY  | Dry season simple daily precipitation intensity index                                                | Millimeters/day           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| SDIIWET  | Wet/rainy season simple daily precipitation intensity index                                          | Millimeters/day           |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| R02      | Annual number of wet days > 0.2 mm/day                                                               | Number of days            |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| R02i     | Monthly number of wet days > 0.2 mm/day for month i (e.g. r021, r022, r023, … r0212)                 | Number of days            |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| R02DJF   | Number of wet days > 0.2 mm/day for DJF season                                                       | Number of days            |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| R02MAM   | Number of wet days > 0.2 mm/day for MAM season                                                       | Number of days            |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| R02JJA   | Number of wet days > 0.2 mm/day for JJA season                                                       | Number of days            |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| R02SON   | Number of wet days > 0.2 mm/day for SON season                                                       | Number of days            |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| R02WET   | Wet/rainy season number of wet days > 0.2 mm/day                                                     | Number of days            |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| R02DRY   | Dry season number of wet days > 0.2 mm/day                                                           | Number of days            |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| R5D      | Maximum consecutive 5-day of precipitation                                                           | Integer                   |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| CD18     | Cooling degree days                                                                                  | Number of days            |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| CDD      | Consecutive dry days                                                                                 | Integer                   |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| DROI     | Standardized precipitation index (SPI)                                                               | Float                     |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| DROF     | Monthly frequency of SPI < -1.5 (Severe dryness) by year                                             | Probability of occurrence |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| GSL      | Growing period length                                                                                | Number of days            |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| GD10     | Growing degree days                                                                                  | Number of days            |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| HD18     | Heating degree days                                                                                  | Number of days            |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
+| HWDI     | Heat wave duration index                                                                             | Number of days            |
++----------+------------------------------------------------------------------------------------------------------+---------------------------+
 
 
 **Table 2** Description of the CMIP5 Global Climate Models available in the REST API. Note that the case for the acronyms should be kept when using the API. Spelling errors (including lower/upper case use) will result no data being returned.
