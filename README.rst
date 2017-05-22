@@ -452,39 +452,59 @@ The Apache configuration may look like this:
 
 **Table 2** Description of the CMIP5 Global Climate Models available in the REST API. Note that the case for the acronyms should be kept when using the API. Spelling errors (including lower/upper case use) will result no data being returned.
 
-=======  ===============  =========
-Acronym  Full Name Model  Institute
-=======  ===============  =========
-bcc-csm1-1  BCC-CSM1.1  Beijing Climate Center, China Meteorological Administration
-BNU-ESM  BNU-ESM  Beijing Normal University
-CanESM2  CCCMA-CanESM2  Canadian Centre for Climate Modelling and Analysis
-CESM1-BGC  CESM1-BGC  National Science Foundation, Department of Energy, National Center for Atmospheric Research
-MIROC-ESM  MIROC-ESM  University of Tokyo, National Institute for Environmental Studies and Japan Agency for Marine-Earth Science and Technology
-CNRM-CM5  CNRM-CM5  Centre National de Recherches Meteorologiques and Centre Europeen de Recherche et Formation Avancees en Calcul Scientifique
-ACCESS1-0  CSIRO-ACCESS1.0  Commonwealth Scientific and Industrial Research Organization (CSIRO) and Bureau of Meteorology (BOM), Australia
-CSIRO-Mk3-6-0  CSIRO-Mk3.6.0  Queensland Climate Change Centre of Excellence and Commonwealth Scientific and Industrial Research Organization
-GFDL-CM3  GFDL-CM3  NOAA Geophysical Fluid Dynamics Laboratory
-GFDL-ESM2G  GFLD-ESM2G
-GFDL-ESM2M  GFLD-ESM2M
-inmcm4  INM-CM4  Institute of Numerical Mathematics of the Russian Academy of Sciences
-IPSL-CM5A-LR  IPSL-CM5A-LR  Institut Pierre Simon Laplace
-IPSL-CM5A-MR  IPSL-CM5A-MR
-CCSM4  NCAR-CCSM4  US National Centre for Atmospheric Research
-ensemble  Ensemble mean  –
-=======  ===============  =========
++-------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
+|Acronym      | Full Name Model | Institute                                                                                                                     |
++=============+=================+===============================================================================================================================+
+|bcc-csm1-1   | BCC-CSM1.1      | Beijing Climate Center, China Meteorological Administration                                                                   |
++-------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
+|BNU-ESM      | BNU-ESM         | Beijing Normal University                                                                                                     |
++-------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
+|CanESM2      | CCCMA-CanESM2   | Canadian Centre for Climate Modelling and analysis                                                                            |
++-------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
+|CESM1-BGC    | CESM1-BGC       | National Science Foundation, Department of Energy, National Center for Atmospheric Research                                   |
++-------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
+|MIROC-ESM    | MIROC-ESM       | University of Tokyo, National Institute for Environmental Studies and Japan Agency for Marine-Earth Science and technology    |
++-------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
+|CNRM-CM5     | CNRM-CM5        | Centre National de Recherches Meteorologiques and Centre Europeen de Recherche et Formation Avancees en Calcul Scientifique   |
++-------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
+|ACCESS1-0    | CSIRO-ACCESS1.0 | Commonwealth Scientific and Industrial Research Organization (CSIRO) and Bureau of Meteorology (BOM), Australia               |
++-------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
+|CSIRO-Mk3-6-0| CSIRO-Mk3.6.0   | Queensland Climate Change Centre of Excellence and Commonwealth Scientific and Industrial Research Organization               |
++-------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
+|GFDL-CM3     | GFDL-CM3        |  NOAA Geophysical Fluid Dynamics Laboratory                                                                                   |
+|GFDL-ESM2G   | GFLD-ESM2G      |                                                                                                                               |
+|GFDL-ESM2M   | GFLD-ESM2M      |                                                                                                                               |
++-------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
+|inmcm4       | INM-CM4         | Institute of Numerical Mathematics of the Russian Academy of Sciences                                                         |
++-------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
+|IPSL-CM5A-LR | IPSL-CM5A-LR    | Institut Pierre Simon Laplace                                                                                                 |
+|IPSL-CM5A-MR | IPSL-CM5A-MR    |                                                                                                                               |
++-------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
+|CCSM4        | NCAR-CCSM4      | US National Centre for Atmospheric Research                                                                                   |
++-------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
+|ensemble     | Ensemble mean   | –                                                                                                                             |
++-------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
 
 
 **Table 3** Parameters required for using the REST API
 
-=====  ====  ===========  =======  ========
-Param. Type  Description  Default  Required
-=====  ====  ===========  =======  ========
-lat  float  Latitude (in decimal degrees) of the site of interest  –  Yes
-lon  float  Longitude (in decimal degrees) of the site of interest  –  Yes
-index  str  Acronym of the index (first column of Table 2)  –  Yes
-scenario  str  Climate scenario (historical, rcp45, rcp85)  –  Yes
-gcm  str  Global Climate Model (first column of Table 1)  ensemble  No
-range  str  Range of years for which data is to be extracted (false for all years)  1976-2005 2040-2069  No 
-avg  boolean  Whether or not the average of the years requested is to be provided  true  No
-baseline  str  Baseline period used as a reference to calculate future projected change. Must be at least 20 years. If this parameter is not specified, the actual value (instead of the change) will be provided.  –  No
-=====  ====  ===========  =======  ========
++----------+---------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+----------+
+| Param.   | Type    | Description                                                                                                                                                                                            |Default               | Required |
++==========+=========+========================================================================================================================================================================================================+======================+==========+
+| lat      | float   | Latitude (in decimal degrees) of the site of interest                                                                                                                                                  | –                    | Yes      |
++----------+---------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+----------+
+| lon      | float   |  Longitude (in decimal degrees) of the site of interest                                                                                                                                                | –                    | Yes      |
++----------+---------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+----------+
+| index    | str     | Acronym of the index (first column of Table 2)                                                                                                                                                         | –                    | Yes      |
++----------+---------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+----------+
+| scenario |   str   | Climate scenario (historical, rcp45, rcp85)                                                                                                                                                            | –                    | Yes      |
++----------+---------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+----------+
+| gcm      |  str    | Global Climate Model (first column of Table 1)                                                                                                                                                         | ensemble             | No       |
++----------+---------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+----------+
+| range    |  str    | Range of years for which data is to be extracted (false for all years)                                                                                                                                 | 1976-2005 2040-2069  | No       |
++----------+---------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+----------+
+| avg      | boolean | Whether or not the average of the years requested is to be provided                                                                                                                                    | true                 | No       |
++----------+---------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+----------+
+| baseline |  str    | Baseline period used as a reference to calculate future projected change. Must be at least 20 years. If this parameter is not specified, the actual value (instead of the change) will be provided.    | –                    | No       |
++----------+---------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+----------+
+
