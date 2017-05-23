@@ -218,89 +218,89 @@ Output:
     -{
     date: 2007,
     -value: {
-    std: 302.350485904241,
     percentile_25: 1100,
-    percentile_50: 1100
+    percentile_50: 1100,
+    mean: 1203.5714285714287
     }
     },
     -{
     date: 2008,
     -value: {
-    std: 312.24479375081626,
     percentile_25: 800,
-    percentile_50: 1100
+    percentile_50: 1100,
+    mean: 1048.2142857142858
     }
     },
     -{
     date: 2009,
     -value: {
-    std: 165.74468625089665,
     percentile_25: 800,
-    percentile_50: 900
+    percentile_50: 900,
+    mean: 855.3571428571429
     }
     },
     -{
     date: 2010,
     -value: {
-    std: 280.89121105684245,
     percentile_25: 1600,
-    percentile_50: 1600
+    percentile_50: 1600,
+    mean: 1730.357142857143
     }
     },
     -{
     date: 2011,
     -value: {
-    std: 296.2348764761103,
     percentile_25: 700,
-    percentile_50: 800
+    percentile_50: 800,
+    mean: 921.4285714285714
     }
     },
     -{
     date: 2012,
     -value: {
-    std: 232.2733149915049,
     percentile_25: 1000,
-    percentile_50: 1100
+    percentile_50: 1100,
+    mean: 1112.5
     }
     },
     -{
     date: 2013,
     -value: {
-    std: 164.59598031147019,
     percentile_25: 1475,
-    percentile_50: 1700
+    percentile_50: 1700,
+    mean: 1607.142857142857
     }
     },
     -{
     date: 2014,
     -value: {
-    std: 228.67603633051874,
     percentile_25: 700,
-    percentile_50: 1100
+    percentile_50: 1100,
+    mean: 980.3571428571429
     }
     },
     -{
     date: 2015,
     -value: {
-    std: 390.90423692891795,
     percentile_25: 800,
-    percentile_50: 1400
+    percentile_50: 1400,
+    mean: 1157.142857142857
     }
     },
     -{
     date: 2016,
     -value: {
-    std: 352.7588064247356,
     percentile_25: 700,
-    percentile_50: 1300
+    percentile_50: 1300,
+    mean: 1135.7142857142858
     }
     },
     -{
     date: 2017,
     -value: {
-    std: 207.75770817498554,
     percentile_25: 1400,
-    percentile_50: 1500
+    percentile_50: 1500,
+    mean: 1457.142857142857
     }
     }
     ],
