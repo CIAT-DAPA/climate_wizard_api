@@ -110,6 +110,11 @@ def service():
 		wavg = True
 	else:
 		wavg = False
+		
+	if not request.query.climatology or request.query.climatology == "true":
+		wclm = True
+	else:
+		wclm = False
 
 	# for convert to celsius
 	if request.query.index.lower()=="txavg" or request.query.index.lower()=="tnavg" or request.query.index.lower()=="txx" or request.query.index.lower()=="tnn":
@@ -120,6 +125,9 @@ def service():
 	fileName = request.query.index.lower()+"_bcsd_"+request.query.scenario.lower()+"_"+wgcm
 	folderModels = "/mnt/data_climatewizard/AR5_Global_Daily_25k/out_stats_tiff/"
 	folder = folderModels+wgcm+"/"
+	if wclm:
+		folder = folder + "split/"
+	
 	allfiles = find(fileName+"*", folder)
 
 	if allfiles:
@@ -233,6 +241,11 @@ def do_service():
 		wavg = True
 	else:
 		wavg = False
+		
+	if not request.query.climatology or request.query.climatology == "true":
+		wclm = True
+	else:
+		wclm = False
 
 	# for convert to celsius
 	if request.query.index.lower()=="TXAVG" or request.query.index.lower()=="TNAVG" or request.query.index.lower()=="TXX" or request.query.index.lower()=="TNN":
@@ -243,6 +256,9 @@ def do_service():
 	fileName = request.query.index+"_BCSD_"+request.query.scenario.lower()+"_"+wgcm
 	folderModels = "/mnt/data_climatewizard/AR5_Global_Daily_25k/out_stats_tiff/"
 	folder = folderModels+wgcm+"/"
+	if wclm:
+		folder = folder + "split/"
+		
 	allfiles = find(fileName+"*", folder)
 
 	if allfiles:
