@@ -186,6 +186,7 @@ http://maprooms.ciat.cgiar.org/climatewizard/service?lat=9.58&lon=-74.41&index=C
 Output:
 
 .. code-block::
+
     {
     acronym: "CDD",
     model: "ACCESS1-0",
@@ -209,6 +210,7 @@ http://maprooms.ciat.cgiar.org/climatewizard/service?index=CDD&scenario=rcp45&gc
 Output:
 
 .. code-block::
+
     {
     acronym: "CDD",
     model: "access1-0",
