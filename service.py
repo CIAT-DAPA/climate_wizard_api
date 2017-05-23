@@ -68,22 +68,22 @@ index = {'txavg':'Monthly mean maximum temperatures historical', 'tnavg':'Monthl
 'tnn11':'Monthly minimum temperatures','tnn12':'Monthly minimum temperatures',
 'tasmax1':'Monthly mean maximum temperatures','tasmax2':'Monthly mean maximum temperatures','tasmax3':'Monthly mean maximum temperatures','tasmax4':'Monthly mean maximum temperatures','tasmax5':'Monthly mean maximum temperatures',
 'tasmax6':'Monthly mean maximum temperatures','tasmax7':'Monthly mean maximum temperatures','tasmax8':'Monthly mean maximum temperatures','tasmax9':'Monthly mean maximum temperatures','tasmax10':'Monthly mean maximum temperatures',
-'tasmax11':'Monthly mean maximum temperatures','tasmax12':'Monthly mean maximum temperatures',
+'tasmax11':'Monthly mean maximum temperatures','tasmax12':'Monthly mean maximum temperatures','tasmax':'Mean maximum temperatures',
 'tasmin1':'Monthly mean minimum temperatures','tasmin2':'Monthly mean minimum temperatures','tasmin3':'Monthly mean minimum temperatures','tasmin4':'Monthly mean minimum temperatures',
 'tasmin5':'Monthly mean minimum temperatures','tasmin6':'Monthly mean minimum temperatures','tasmin7':'Monthly mean minimum temperatures','tasmin8':'Monthly mean minimum temperatures','tasmin9':'Monthly mean minimum temperatures',
-'tasmin10':'Monthly mean minimum temperatures','tasmin11':'Monthly mean minimum temperatures','tasmin12':'Monthly mean minimum temperatures',
+'tasmin10':'Monthly mean minimum temperatures','tasmin11':'Monthly mean minimum temperatures','tasmin12':'Monthly mean minimum temperatures','tasmin':'Mean minimum temperatures',
 'tas1':'Monthly mean average temperatures','tas2':'Monthly mean average temperatures','tas3':'Monthly mean average temperatures','tas4':'Monthly mean average temperatures','tas5':'Monthly mean average temperatures',
 'tas6':'Monthly mean average temperatures','tas7':'Monthly mean average temperatures','tas8':'Monthly mean average temperatures','tas9':'Monthly mean average temperatures','tas10':'Monthly mean average temperatures',
-'tas11':'Monthly mean average temperatures','tas12':'Monthly mean average temperatures',
+'tas11':'Monthly mean average temperatures','tas12':'Monthly mean average temperatures','tas':'Mean average temperatures',
 'pr1':'Monthly accumulated precipitation','pr2':'Monthly accumulated precipitation','pr3':'Monthly accumulated precipitation','pr4':'Monthly accumulated precipitation','pr5':'Monthly accumulated precipitation',
 'pr6':'Monthly accumulated precipitation','pr7':'Monthly accumulated precipitation','pr8':'Monthly accumulated precipitation','pr9':'Monthly accumulated precipitation','pr10':'Monthly accumulated precipitation',
-'pr11':'Monthly accumulated precipitation','pr12':'Monthly accumulated precipitation',
+'pr11':'Monthly accumulated precipitation','pr12':'Monthly accumulated precipitation','pr':'Accumulated precipitation',
 'sdii1':'Monthly simple daily precipitation intensity index','sdii2':'Monthly simple daily precipitation intensity index','sdii3':'Monthly simple daily precipitation intensity index','sdii4':'Monthly simple daily precipitation intensity index',
 'sdii5':'Monthly simple daily precipitation intensity index','sdii6':'Monthly simple daily precipitation intensity index','sdii7':'Monthly simple daily precipitation intensity index','sdii8':'Monthly simple daily precipitation intensity index',
 'sdii9':'Monthly simple daily precipitation intensity index','sdii10':'Monthly simple daily precipitation intensity index','sdii11':'Monthly simple daily precipitation intensity index','sdii12':'Monthly simple daily precipitation intensity index',
 'R021':'Monthly number of wet days > 0.2 mm/day','R022':'Monthly number of wet days > 0.2 mm/day','R023':'Monthly number of wet days > 0.2 mm/day','R024':'Monthly number of wet days > 0.2 mm/day',
 'R025':'Monthly number of wet days > 0.2 mm/day','R026':'Monthly number of wet days > 0.2 mm/day','R027':'Monthly number of wet days > 0.2 mm/day','R028':'Monthly number of wet days > 0.2 mm/day','R029':'Monthly number of wet days > 0.2 mm/day',
-'R0210':'Monthly number of wet days > 0.2 mm/day','R0211':'Monthly number of wet days > 0.2 mm/day','R0212':'Monthly number of wet days > 0.2 mm/day',}
+'R0210':'Monthly number of wet days > 0.2 mm/day','R0211':'Monthly number of wet days > 0.2 mm/day','R0212':'Monthly number of wet days > 0.2 mm/day','R02':'Number of wet days > 0.2 mm/day'}
 
 fmttypes = {'Byte':'B', 'UInt16':'H', 'Int16':'h', 'UInt32':'I', 
             'Int32':'i', 'Float32':'f', 'Float64':'d'}	
