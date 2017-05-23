@@ -145,7 +145,7 @@ def service():
 				for stat in tstats:
 					rstats.append(stat)
 			else :
-				rstats = ['min', 'max', 'median', 'mean', 'std','percentile_5','percentile_25','percentile_75','percentile_95']
+				rstats = ['min', 'max', 'median', 'mean','percentile_5','percentile_25','percentile_75','percentile_95']
 
 			for band in range( bands ):
 				band += 1
@@ -268,7 +268,7 @@ def do_service():
 				for stat in tstats:
 					rstats.append(stat)
 			else :
-				rstats = ['min', 'max', 'median', 'mean', 'std','percentile_5','percentile_25','percentile_75','percentile_95']
+				rstats = ['min', 'max', 'median', 'mean','percentile_5','percentile_25','percentile_75','percentile_95']
 
 			for band in range( bands ):
 				band += 1

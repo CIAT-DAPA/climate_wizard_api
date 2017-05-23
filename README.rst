@@ -28,7 +28,7 @@ http://maprooms.ciat.cgiar.org/climatewizard/service
 **stats** (str)(optional)
     Statistical values that are desired computed separated by commas (,)
     **Permitted values:** min, max, mean, count, sum, std, median, majority, minority, unique, range, nodata, percentile
-    **Default:** min, max, median, mean, std, percentile_5, percentile_25, percentile_75, percentile_95
+    **Default:** min, max, median, mean, percentile_5, percentile_25, percentile_75, percentile_95
 
 **index** (str)  (Required) 
     Climate index
@@ -204,7 +204,7 @@ Example #5
 ----------
 Querying the zonal statistic (std,percentile_25 and percentile_50) using a polygon in consecutive dry days projected for the period 2007-2017 with respect to the average of a baseline period (1980–2000), for the climate model ACCESS1-0
 
-http://maprooms.ciat.cgiar.org/climatewizard/service?index=CDD&scenario=rcp45&gcm=ACCESS1-0&range=2007-2017&baseline=1980-2000&geojson={"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"Polygon","coordinates":[[[-75.7177734375,4.061535597066106],[-75.7177734375,5.7690358661221355],[-73.8720703125,5.7690358661221355],[-73.8720703125,4.061535597066106],[-75.7177734375,4.061535597066106]]]}}]}&stats=std,percentile_25,percentile_50
+http://maprooms.ciat.cgiar.org/climatewizard/service?index=CDD&scenario=rcp45&gcm=ACCESS1-0&range=2007-2017&baseline=1980-2000&geojson={"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"Polygon","coordinates":[[[-75.7177734375,4.061535597066106],[-75.7177734375,5.7690358661221355],[-73.8720703125,5.7690358661221355],[-73.8720703125,4.061535597066106],[-75.7177734375,4.061535597066106]]]}}]}&stats=mean,percentile_25,percentile_50
 
 Output:
 
