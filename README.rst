@@ -27,7 +27,7 @@ http://maprooms.ciat.cgiar.org/climatewizard/service
 
 **stats** (str)(optional)
     Statistical values that are desired computed separated by commas (,)
-    **Permitted values:** min, max, mean, count, sum, std, median, majority, minority, unique, range, nodata, percentile
+    **Permitted values:** min, max, mean, count, sum, median, majority, minority, unique, range, nodata, percentile
     **Default:** min, max, median, mean, percentile_5, percentile_25, percentile_75, percentile_95
 
 **index** (str)  (Required) 
@@ -187,16 +187,16 @@ Output:
 
 .. code-block::
     {
-        acronym: "CDD",
-        model: "ACCESS1-0",
-        -values: (1)[
-        -{
-        date: avg_2041-2060,
-        value: -9.98333333333
-        }
-        ],
-        name: "Consecutive dry days",
-        scenario: "rcp45"
+    acronym: "CDD",
+    model: "ACCESS1-0",
+    -values: (1)[
+    -{
+    date: avg_2041-2060,
+    value: -9.98333333333
+    }
+    ],
+    name: "Consecutive dry days",
+    scenario: "rcp45"
     }
 
 
@@ -204,106 +204,106 @@ Example #5
 ----------
 Querying the zonal statistic (std,percentile_25 and percentile_50) using a polygon in consecutive dry days projected for the period 2007-2017 with respect to the average of a baseline period (1980–2000), for the climate model ACCESS1-0
 
-http://maprooms.ciat.cgiar.org/climatewizard/service?index=CDD&scenario=rcp45&gcm=ACCESS1-0&range=2007-2017&baseline=1980-2000&geojson={"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"Polygon","coordinates":[[[-75.7177734375,4.061535597066106],[-75.7177734375,5.7690358661221355],[-73.8720703125,5.7690358661221355],[-73.8720703125,4.061535597066106],[-75.7177734375,4.061535597066106]]]}}]}&stats=mean,percentile_25,percentile_50
+http://maprooms.ciat.cgiar.org/climatewizard/service?index=CDD&scenario=rcp45&gcm=ACCESS1-0&range=2007-2017&baseline=1980-2000&geojson={"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"Polygon","coordinates":[[[-75.7177734375,4.061535597066106],[-75.7177734375,5.7690358661221355],[-73.8720703125,5.7690358661221355],[-73.8720703125,4.061535597066106],[-75.7177734375,4.061535597066106]]]}}]}&stats=percentile_25,percentile_50,mean
 
 Output:
 
 .. code-block::
     {
-        acronym: "CDD",
-        model: "access1-0",
-        -values: (11)[
-        -{
-        date: 2007,
-        -value: {
-        std: 302.350485904241,
-        percentile_25: 1100,
-        percentile_50: 1100
-        }
-        },
-        -{
-        date: 2008,
-        -value: {
-        std: 312.24479375081626,
-        percentile_25: 800,
-        percentile_50: 1100
-        }
-        },
-        -{
-        date: 2009,
-        -value: {
-        std: 165.74468625089665,
-        percentile_25: 800,
-        percentile_50: 900
-        }
-        },
-        -{
-        date: 2010,
-        -value: {
-        std: 280.89121105684245,
-        percentile_25: 1600,
-        percentile_50: 1600
-        }
-        },
-        -{
-        date: 2011,
-        -value: {
-        std: 296.2348764761103,
-        percentile_25: 700,
-        percentile_50: 800
-        }
-        },
-        -{
-        date: 2012,
-        -value: {
-        std: 232.2733149915049,
-        percentile_25: 1000,
-        percentile_50: 1100
-        }
-        },
-        -{
-        date: 2013,
-        -value: {
-        std: 164.59598031147019,
-        percentile_25: 1475,
-        percentile_50: 1700
-        }
-        },
-        -{
-        date: 2014,
-        -value: {
-        std: 228.67603633051874,
-        percentile_25: 700,
-        percentile_50: 1100
-        }
-        },
-        -{
-        date: 2015,
-        -value: {
-        std: 390.90423692891795,
-        percentile_25: 800,
-        percentile_50: 1400
-        }
-        },
-        -{
-        date: 2016,
-        -value: {
-        std: 352.7588064247356,
-        percentile_25: 700,
-        percentile_50: 1300
-        }
-        },
-        -{
-        date: 2017,
-        -value: {
-        std: 207.75770817498554,
-        percentile_25: 1400,
-        percentile_50: 1500
-        }
-        }
-        ],
-        name: "Consecutive dry days",
-        scenario: "rcp45"
+    acronym: "CDD",
+    model: "access1-0",
+    -values: (11)[
+    -{
+    date: 2007,
+    -value: {
+    std: 302.350485904241,
+    percentile_25: 1100,
+    percentile_50: 1100
+    }
+    },
+    -{
+    date: 2008,
+    -value: {
+    std: 312.24479375081626,
+    percentile_25: 800,
+    percentile_50: 1100
+    }
+    },
+    -{
+    date: 2009,
+    -value: {
+    std: 165.74468625089665,
+    percentile_25: 800,
+    percentile_50: 900
+    }
+    },
+    -{
+    date: 2010,
+    -value: {
+    std: 280.89121105684245,
+    percentile_25: 1600,
+    percentile_50: 1600
+    }
+    },
+    -{
+    date: 2011,
+    -value: {
+    std: 296.2348764761103,
+    percentile_25: 700,
+    percentile_50: 800
+    }
+    },
+    -{
+    date: 2012,
+    -value: {
+    std: 232.2733149915049,
+    percentile_25: 1000,
+    percentile_50: 1100
+    }
+    },
+    -{
+    date: 2013,
+    -value: {
+    std: 164.59598031147019,
+    percentile_25: 1475,
+    percentile_50: 1700
+    }
+    },
+    -{
+    date: 2014,
+    -value: {
+    std: 228.67603633051874,
+    percentile_25: 700,
+    percentile_50: 1100
+    }
+    },
+    -{
+    date: 2015,
+    -value: {
+    std: 390.90423692891795,
+    percentile_25: 800,
+    percentile_50: 1400
+    }
+    },
+    -{
+    date: 2016,
+    -value: {
+    std: 352.7588064247356,
+    percentile_25: 700,
+    percentile_50: 1300
+    }
+    },
+    -{
+    date: 2017,
+    -value: {
+    std: 207.75770817498554,
+    percentile_25: 1400,
+    percentile_50: 1500
+    }
+    }
+    ],
+    name: "Consecutive dry days",
+    scenario: "rcp45"
     }
 
 
