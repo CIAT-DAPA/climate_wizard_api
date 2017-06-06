@@ -111,7 +111,7 @@ def service():
 	else:
 		wavg = False
 		
-	if not request.query.climatology or request.query.climatology == "true":
+	if request.query.climatology == "true":
 		wclm = True
 	else:
 		wclm = False
@@ -242,7 +242,7 @@ def do_service():
 	else:
 		wavg = False
 		
-	if not request.query.climatology or request.query.climatology == "true":
+	if request.query.climatology == "true":
 		wclm = True
 	else:
 		wclm = False
