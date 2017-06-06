@@ -15,11 +15,11 @@ from rasterstats.io import read_featurecollection, read_features
 import fiona
 
 def find(pattern, path):
-    result = ""
+    result = []
     for root, dirs, files in os.walk(path):
         for name in files:
             if fnmatch.fnmatch(name, pattern):
-                result = os.path.join(root, name)
+                result.append (os.path.join(root, name))
     return result
 
 def calcAvg (file, folder,wrange, lat, lon):
