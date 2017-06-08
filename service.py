@@ -157,7 +157,7 @@ def service():
 					for stat in tstats:
 						rstats.append(stat)
 				else :
-					rstats = ['min', 'max', 'median', 'mean', 'std','percentile_5','percentile_25','percentile_75','percentile_95']
+					rstats = ['min', 'max', 'median', 'mean','percentile_5','percentile_25','percentile_75','percentile_95']
 
 				for band in range( bands ):
 					band += 1
@@ -167,8 +167,8 @@ def service():
 							with fiona.open(file) as src:
 								zs = zonal_stats(src, folder+name[1], band=band,stats=rstats)
 							json_output['values'].append({'date' : str(int(monthlyYear+startDate))+"-"+str(int(((band-1)%12)+1)) , 'value' : zs[0]})
-							if (band % 12) == 0:
-								monthlyYear += 1
+						if (band % 12) == 0:
+							monthlyYear += 1
 					else:
 						if int(wrange[0]) <= int(band+startDate-1) <= int(wrange[1]):
 							with fiona.open(file) as src:
@@ -211,9 +211,9 @@ def service():
 									avg += (round((float(intval[0])/100),2))+factor
 								else:
 									output_item = {'date' : str(int(monthlyYear+startDate))+"-"+str(int(((band-1)%12)+1)) , 'value' : ((round((float(intval[0])/100),2))+factor)-baselineAvg}
-									if (band % 12) == 0:
-										monthlyYear += 1
 									json_output['values'].append(output_item)
+							if (band % 12) == 0:
+								monthlyYear += 1
 						else:
 							if int(wrange[0]) <= int(band+startDate-1) <= int(wrange[1]):
 								srcband = ds.GetRasterBand(band)
@@ -321,7 +321,7 @@ def do_service():
 					for stat in tstats:
 						rstats.append(stat)
 				else :
-					rstats = ['min', 'max', 'median', 'mean', 'std','percentile_5','percentile_25','percentile_75','percentile_95']
+					rstats = ['min', 'max', 'median', 'mean','percentile_5','percentile_25','percentile_75','percentile_95']
 
 				for band in range( bands ):
 					band += 1
@@ -331,8 +331,8 @@ def do_service():
 							with fiona.open(file) as src:
 								zs = zonal_stats(src, folder+name[1], band=band,stats=rstats)
 							json_output['values'].append({'date' : str(int(monthlyYear+startDate))+"-"+str(int(((band-1)%12)+1)) , 'value' : zs[0]})
-							if (band % 12) == 0:
-								monthlyYear += 1
+						if (band % 12) == 0:
+							monthlyYear += 1
 					else:
 						if int(wrange[0]) <= int(band+startDate-1) <= int(wrange[1]):
 							with fiona.open(file) as src:
@@ -375,9 +375,9 @@ def do_service():
 									avg += (round((float(intval[0])/100),2))+factor
 								else:
 									output_item = {'date' : str(int(monthlyYear+startDate))+"-"+str(int(((band-1)%12)+1)) , 'value' : ((round((float(intval[0])/100),2))+factor)-baselineAvg}
-									if (band % 12) == 0:
-										monthlyYear += 1
 									json_output['values'].append(output_item)
+							if (band % 12) == 0:
+								monthlyYear += 1
 						else:
 							if int(wrange[0]) <= int(band+startDate-1) <= int(wrange[1]):
 								srcband = ds.GetRasterBand(band)
