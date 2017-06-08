@@ -113,7 +113,6 @@ def service():
 
 	if request.query.climatology == "true":
 		wclm = True
-		monthlyYear = 0
 	else:
 		wclm = False
 
@@ -135,6 +134,7 @@ def service():
 	if len(allfiles) > 0:
 		json_output = {'name' : index[request.query.index.lower()], 'acronym':request.query.index,'model':wgcm,'scenario':request.query.scenario.lower() ,'values':[]}
 		for nameFile in allfiles:
+			monthlyYear = 0
 			name = nameFile.split(folder)
 			acroIndex = name[1].split("_")
 			period = acroIndex[4].split("-")
@@ -277,7 +277,6 @@ def do_service():
 
 	if request.query.climatology == "true":
 		wclm = True
-		monthlyYear = 0
 	else:
 		wclm = False
 
@@ -299,6 +298,7 @@ def do_service():
 	if len(allfiles) > 0:
 		json_output = {'name' : index[request.query.index.lower()], 'acronym':request.query.index,'model':wgcm,'scenario':request.query.scenario.lower() ,'values':[]}
 		for nameFile in allfiles:
+			monthlyYear = 0
 			name = nameFile.split(folder)
 			acroIndex = name[1].split("_")
 			period = acroIndex[4].split("-")
