@@ -208,7 +208,7 @@ def service():
 								bandtype = gdal.GetDataTypeName(srcband.DataType)
 								intval = struct.unpack(fmttypes[bandtype] , structval)
 								if wavg:
-									avg += (round((float(intval[0])/100),2))+factor
+									avg += round((float(intval[0])/100)+factor,2)
 								else:
 									output_item = {'date' : str(int(monthlyYear+startDate))+"-"+str(int(((band-1)%12)+1)) , 'value' : ((round((float(intval[0])/100),2))+factor)-baselineAvg}
 									json_output['values'].append(output_item)
@@ -221,7 +221,7 @@ def service():
 								bandtype = gdal.GetDataTypeName(srcband.DataType)
 								intval = struct.unpack(fmttypes[bandtype] , structval)
 								if wavg:
-									avg += (round((float(intval[0])/100),2))+factor
+									avg += round((float(intval[0])/100)+factor,2)
 								else:
 									output_item = {'date' : int(band+startDate-1) , 'value' : ((round((float(intval[0])/100),2))+factor)-baselineAvg}
 									json_output['values'].append(output_item)
