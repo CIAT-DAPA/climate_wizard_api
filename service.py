@@ -117,7 +117,7 @@ def service():
 		wclm = False
 
 	# for convert to celsius
-	if request.query.index.lower()=="txavg" or request.query.index.lower()=="tnavg" or request.query.index.lower()=="txx" or request.query.index.lower()=="tnn":
+	if request.query.index.lower()=="txavg" or request.query.index.lower()=="tnavg" or request.query.index.lower()=="txx" or request.query.index.lower()=="tnn" or request.query.index.lower()=="tas" or request.query.index.lower()=="tasmin" or request.query.index.lower()=="tasmax" or request.query.index[0:3].lower()=="tas":
 		factor=-273.15 
 	else:
 		factor=0
