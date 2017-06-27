@@ -63,6 +63,11 @@ http://maprooms.ciat.cgiar.org/climatewizard/service
     **Permitted values:** any 20-year period within the period 1950–2005.
     **Default:** when not specified, change is not computed. That is, the actual future projected values are provided.
 
+**climatology** (boolean) (optional)
+	Get monthly data.
+	Note: 
+	   parameter "avg" no work with this option, set avg in false.
+	
 2.2 Return Values
 --------------
 The service returns the values in json format. If the data is not found, an error message will be returned.
@@ -308,7 +313,56 @@ Output:
     scenario: "rcp45"
     }
 
+Example #5
+----------
+Querying the monthly data
 
+http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=true
+
+Output:
+
+.. code-block::
+	{
+	acronym: "txx",
+	model: "ensemble",
+	values: [
+	{
+	date: "2030-1",
+	value: 31.920000000000016
+	},
+	{
+	date: "2030-2",
+	value: 32.69
+	},
+	{
+	date: "2030-3",
+	value: 32.650000000000034
+	},
+	{
+	date: "2030-4",
+	value: 32.02000000000004
+	},
+	{
+	date: "2030-5",
+	value: 32.150000000000034
+	},
+	{
+	date: "2030-6",
+	value: 32.09000000000003
+	},
+	{
+	date: "2030-7",
+	value: 33.06
+	},
+	{
+	date: "2030-8",
+	value: 33.97000000000003
+	},
+	{
+	date: "2030-9",
+	value: 33.73000000000002
+	}
+	
 3. Installing the REST API
 =======================
 The REST API is deployed as a standard webapp for your servlet container / Apache. The technology used is Python, specifically the libraries GDAL, Bottle and rasterstats.
