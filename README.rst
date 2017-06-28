@@ -65,7 +65,7 @@ http://maprooms.ciat.cgiar.org/climatewizard/service
 
 **climatology** (boolean) (optional)
     Get monthly data.
-    **Note: parameter "avg" no work with this option, set avg in false.
+    **Note:** parameter "avg" no work with this option, set avg in false.
 
 2.2 Return Values
 --------------
