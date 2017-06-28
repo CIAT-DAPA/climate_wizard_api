@@ -313,7 +313,7 @@ Output:
     scenario: "rcp45"
     }
 
-Example #5
+Example #6
 ----------
 Querying the monthly data
 
@@ -362,7 +362,7 @@ Output:
 	date: "2030-9",
 	value: 33.73000000000002
 	}
-	
+	}
 3. Installing the REST API
 =======================
 The REST API is deployed as a standard webapp for your servlet container / Apache. The technology used is Python, specifically the libraries GDAL, Bottle and rasterstats.
