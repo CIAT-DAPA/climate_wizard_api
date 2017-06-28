@@ -64,9 +64,9 @@ http://maprooms.ciat.cgiar.org/climatewizard/service
     **Default:** when not specified, change is not computed. That is, the actual future projected values are provided.
 
 **climatology** (boolean) (optional)
-	Get monthly data.
-	**Note: parameter "avg" no work with this option, set avg in false.
-	
+    Get monthly data.
+    **Note: parameter "avg" no work with this option, set avg in false.
+
 2.2 Return Values
 --------------
 The service returns the values in json format. If the data is not found, an error message will be returned.
