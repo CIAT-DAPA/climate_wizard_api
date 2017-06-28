@@ -322,50 +322,52 @@ http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx
 Output:
 
 .. code-block::
-	{
-	acronym: "txx",
-	model: "ensemble",
-	-values: [
-	-{
-	date: "2030-1",
-	value: 31.920000000000016
-	},
-	-{
-	date: "2030-2",
-	value: 32.69
-	},
-	-{
-	date: "2030-3",
-	value: 32.650000000000034
-	},
-	-{
-	date: "2030-4",
-	value: 32.02000000000004
-	},
-	{
-	date: "2030-5",
-	value: 32.150000000000034
-	},
-	-{
-	date: "2030-6",
-	value: 32.09000000000003
-	},
-	-{
-	date: "2030-7",
-	value: 33.06
-	},
-	-{
-	date: "2030-8",
-	value: 33.97000000000003
-	},
-	-{
-	date: "2030-9",
-	value: 33.73000000000002
-	}
+
+    {
+    acronym: "txx",
+    model: "ensemble",
+    -values: [
+    -{
+    date: "2030-1",
+    value: 31.920000000000016
+    },
+    -{
+    date: "2030-2",
+    value: 32.69
+    },
+    -{
+    date: "2030-3",
+    value: 32.650000000000034
+    },
+    -{
+    date: "2030-4",
+    value: 32.02000000000004
+    },
+    {
+    date: "2030-5",
+    value: 32.150000000000034
+    },
+    -{
+    date: "2030-6",
+    value: 32.09000000000003
+    },
+    -{
+    date: "2030-7",
+    value: 33.06
+    },
+    -{
+    date: "2030-8",
+    value: 33.97000000000003
+    },
+    -{
+    date: "2030-9",
+    value: 33.73000000000002
+    }
     ],
-	name: "Monthly maximum temperatures",
-	scenario: "rcp85"	
-	}
+    name: "Monthly maximum temperatures",
+    scenario: "rcp85"    
+    }
+
 3. Installing the REST API
 =======================
 The REST API is deployed as a standard webapp for your servlet container / Apache. The technology used is Python, specifically the libraries GDAL, Bottle and rasterstats.
