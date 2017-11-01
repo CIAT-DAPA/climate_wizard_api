@@ -314,7 +314,7 @@ Output:
 
 Example #6
 ----------
-Querying the monthly data
+Querying the monthly maximum temperature for all months of the decade 2030-2040, for the ensemble model (multimodel-mean).
 
 http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=true
 
