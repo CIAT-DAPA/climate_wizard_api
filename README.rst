@@ -185,7 +185,7 @@ Example #4
 ----------
 Querying the average change in consecutive dry days projected for the period 2041–2060 with respect to the average of a baseline period (1980–2000), for the climate model ACCESS1-0.
 
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=9.58&lon=-74.41&index=CDD&scenario=rcp45&gcm=ACCESS1-0&range=2041-2060&baseline=1980-2000&avg=true
+http://maprooms.ciat.cgiar.org/climatewizard/service?lat=9.58&lon=-74.41&index=CDD&scenario=rcp45&gcm=ACCESS1-0&range=2041-2060&baseline=1980-2000&avg=true&baseline=false
 
 Output:
 
@@ -316,7 +316,7 @@ Example #6
 ----------
 Querying the monthly maximum temperature for all months of the decade 2030-2040, for the ensemble model (multimodel-mean).
 
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=true
+http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=true&baseline=false
 
 Output:
 
