@@ -209,108 +209,56 @@ Example #5
 ----------
 Querying the zonal statistic (std,percentile_25 and percentile_50) using a polygon in consecutive dry days projected for the period 2007-2017 with respect to the average of a baseline period (1980–2000), for the climate model ACCESS1-0
 
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=9.58&lon=-74.41&index=CDD&scenario=rcp45&gcm=ACCESS1-0&range=2041-2050&baseline=1980-2000&avg=false&baseline=false&geojson={%22type%22:%22FeatureCollection%22,%22features%22:[{%22type%22:%22Feature%22,%22properties%22:{},%22geometry%22:{%22type%22:%22Polygon%22,%22coordinates%22:[[[-75.7177734375,4.061535597066106],[-75.7177734375,5.7690358661221355],[-73.8720703125,5.7690358661221355],[-73.8720703125,4.061535597066106],[-75.7177734375,4.061535597066106]]]}}]}
+http://maprooms.ciat.cgiar.org/climatewizard/service?lat=9.58&lon=-74.41&stats=min,max,median,mean,percentile_5,percentile_25,percentile_75,percentile_95&index=CDD&scenario=rcp45&gcm=ACCESS1-0&range=2041-2060&baseline=1980-2000&avg=false&baseline=false&geojson={%22type%22:%22FeatureCollection%22,%22features%22:[{%22type%22:%22Feature%22,%22properties%22:{},%22geometry%22:{%22type%22:%22Polygon%22,%22coordinates%22:[[[-75.7177734375,4.061535597066106],[-75.7177734375,5.7690358661221355],[-73.8720703125,5.7690358661221355],[-73.8720703125,4.061535597066106],[-75.7177734375,4.061535597066106]]]}}]}
 
 Output:
 
 .. code-block::
 
-    {
-    acronym: "CDD",
-    model: "access1-0",
-    -values: (11)[
-    -{
-    date: 2007,
-    -value: {
-    percentile_25: 1100,
-    percentile_50: 1100,
-    mean: 1203.5714285714287
-    }
-    },
-    -{
-    date: 2008,
-    -value: {
-    percentile_25: 800,
-    percentile_50: 1100,
-    mean: 1048.2142857142858
-    }
-    },
-    -{
-    date: 2009,
-    -value: {
-    percentile_25: 800,
-    percentile_50: 900,
-    mean: 855.3571428571429
-    }
-    },
-    -{
-    date: 2010,
-    -value: {
-    percentile_25: 1600,
-    percentile_50: 1600,
-    mean: 1730.357142857143
-    }
-    },
-    -{
-    date: 2011,
-    -value: {
-    percentile_25: 700,
-    percentile_50: 800,
-    mean: 921.4285714285714
-    }
-    },
-    -{
-    date: 2012,
-    -value: {
-    percentile_25: 1000,
-    percentile_50: 1100,
-    mean: 1112.5
-    }
-    },
-    -{
-    date: 2013,
-    -value: {
-    percentile_25: 1475,
-    percentile_50: 1700,
-    mean: 1607.142857142857
-    }
-    },
-    -{
-    date: 2014,
-    -value: {
-    percentile_25: 700,
-    percentile_50: 1100,
-    mean: 980.3571428571429
-    }
-    },
-    -{
-    date: 2015,
-    -value: {
-    percentile_25: 800,
-    percentile_50: 1400,
-    mean: 1157.142857142857
-    }
-    },
-    -{
-    date: 2016,
-    -value: {
-    percentile_25: 700,
-    percentile_50: 1300,
-    mean: 1135.7142857142858
-    }
-    },
-    -{
-    date: 2017,
-    -value: {
-    percentile_25: 1400,
-    percentile_50: 1500,
-    mean: 1457.142857142857
-    }
-    }
-    ],
-    name: "Consecutive dry days",
-    scenario: "rcp45"
-    }
+	{
+	acronym: "CDD",
+	model: "access1-0",
+	values: [
+	{
+	date: 2041,
+	value: [
+	"min: 300.0",
+	"max: 1300.0",
+	"median: 800.0",
+	"mean: 828.13",
+	"percentile_5: 500.0",
+	"percentile_25: 600.0",
+	"percentile_75: 1100.0",
+	"percentile_95: 1300.0"
+	]
+	},
+	{
+	date: 2042,
+	value: [
+	"min: 1000.0",
+	"max: 3300.0",
+	"median: 2100.0",
+	"mean: 2076.56",
+	"percentile_5: 1200.0",
+	"percentile_25: 1500.0",
+	"percentile_75: 2600.0",
+	"percentile_95: 3085.0"
+	]
+	},
+	{
+	date: 2043,
+	value: [
+	"min: 800.0",
+	"max: 1700.0",
+	"median: 1100.0",
+	"mean: 1129.69",
+	"percentile_5: 800.0",
+	"percentile_25: 1000.0",
+	"percentile_75: 1300.0",
+	"percentile_95: 1400.0"
+	]
+	}
+	...
 
 Example #6
 ----------
