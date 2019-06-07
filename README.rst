@@ -108,18 +108,18 @@ Output:
 
 .. code-block::
 
-{
-  "acronym": "CD18",
-  "model": "access1-0",
-  "values": [
-    {
-      "date": "avg_2006-2099",
-      "value": "718.47"
-    }
-  ],
-  "name": "cooling degree days",
-  "scenario": "rcp45"
-}
+	{
+	"acronym": "CD18",
+	"model": "access1-0",
+	-"values": [
+	-{
+	  "date": "avg_2006-2099",
+	  "value": "718.47"
+	}
+	],
+	"name": "cooling degree days",
+	"scenario": "rcp45"
+	}
 
 
 Example #3
