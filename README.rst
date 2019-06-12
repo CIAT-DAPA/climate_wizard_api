@@ -275,6 +275,7 @@ Output:
     }
 
 Example #7
+----------
 **Table 1** Expected results of combination of parameters: baseline, climatology and avg
 
 +--------------------------+-------------+-------+---------------------------------+
