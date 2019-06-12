@@ -133,34 +133,24 @@ Output:
 
 .. code-block::
 
+ "acronym": "CD18",
+  "model": "access1-0",
+  "values": [
     {
-    acronym: "CD18",
-    model: "ACCESS1-0",
-    -values: (6)[
-    -{
-    date: 1960,
-    value: 3937.16
+      "date": 1950,
+      "value": 4054.58
     },
-    -{
-    date: 1961,
-    value: 3869.43
+    {
+      "date": 1951,
+      "value": 3992.61
     },
-    -{
-    date: 1962,
-    value: 3792.88
+    {
+      "date": 1952,
+      "value": 3804.63
     },
-    -{
-    date: 1963,
-    value: 3761.62
-    },
-    -{
-    date: 1964,
-    value: 3633.05
-    },
-    -{
-    date: 1965,
-    value: 3933.23
-    }
+	
+	...
+	
     ],
     name: "cooling degree days",
     scenario: "historical"
@@ -170,7 +160,7 @@ Example #4
 ----------
 Querying the average change in consecutive dry days projected for the period 2041–2060 with respect to the average of a baseline period (1980–2000), for the climate model ACCESS1-0.
 
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=9.58&lon=-74.41&index=CDD&scenario=rcp45&gcm=ACCESS1-0&range=2041-2060&baseline=1980-2000&avg=true&baseline=false
+http://maprooms.ciat.cgiar.org/climatewizard/service?lat=9.58&lon=-74.41&index=CDD&scenario=rcp45&gcm=ACCESS1-0&range=2041-2060&baseline=1980-2000&avg=true
 
 Output:
 
@@ -260,46 +250,346 @@ Output:
     model: "ensemble",
     -values: [
     -{
-    date: "2030-1",
-    value: 31.920000000000016
-    },
-    -{
-    date: "2030-2",
-    value: 32.69
-    },
-    -{
-    date: "2030-3",
-    value: 32.650000000000034
-    },
-    -{
-    date: "2030-4",
-    value: 32.02000000000004
+
+      "date": "2030-1",
+      "value": 31.92
     },
     {
-    date: "2030-5",
-    value: 32.150000000000034
+      "date": "2030-2",
+      "value": 32.69
     },
-    -{
-    date: "2030-6",
-    value: 32.09000000000003
+    {
+      "date": "2030-3",
+      "value": 32.65
     },
-    -{
-    date: "2030-7",
-    value: 33.06
+    {
+      "date": "2030-4",
+      "value": 32.02
     },
-    -{
-    date: "2030-8",
-    value: 33.97000000000003
-    },
-    -{
-    date: "2030-9",
-    value: 33.73000000000002
-    }
+	
+	...
+	
     ],
     name: "Monthly maximum temperatures",
     scenario: "rcp85"    
     }
 
+Example #7
+**Table 1** Expected results of combination of parameters: baseline, climatology and avg
+
++--------------------------+-------------+-------+---------------------------------+
+| baseline                 | climatology |  avg  |  Result                         |
++==========================+=============+=======+=================================+
+| TRUE(defined by user)    | TRUE        | TRUE  |  multi-year, 12 months, change  |
++--------------------------+-------------+-------+---------------------------------+
+| Empty(default 1950-2005) | TRUE        | TRUE  |  multi-year, 12 months, change  |
++--------------------------+-------------+-------+---------------------------------+
+| FALSE                    | TRUE        | TRUE  |  multi-year, 12 months, future  |
++--------------------------+-------------+-------+---------------------------------+
+| TRUE(defined by user)    | FALSE       | TRUE  |  multi-year, annual, change     |
++--------------------------+-------------+-------+---------------------------------+
+| TRUE(defined by user)    | TRUE        | FALSE |  time-series, monthly, change   |
++--------------------------+-------------+-------+---------------------------------+
+| TRUE(defined by user)    | FALSE       | FALSE |  time-series, annual, change    |
++--------------------------+-------------+-------+---------------------------------+
+| FALSE                    | FALSE       | TRUE  |  time-series, annual, future    |
++--------------------------+-------------+-------+---------------------------------+
+| FALSE                    | TRUE        | FALSE |  time-series, monthly, future   |
++--------------------------+-------------+-------+---------------------------------+
+
+	
+http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=true&baseline=1980-2000
+
+Output:
+
+.. code-block::
+	{
+	  "acronym": "txx",
+	  "model": "ensemble",
+	  "values": [
+		{
+		  "date": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10,
+			11,
+			12
+		  ],
+		  "value": [
+			0.89,
+			1.53,
+			1.64,
+			1.34,
+			1.13,
+			1.32,
+			2.11,
+			2.9,
+			2.98,
+			1.49,
+			0.47,
+			0.6
+		  ]
+		}
+	  ],
+	  "name": "Monthly maximum temperatures",
+	  "scenario": "rcp85"
+	}
+
+http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=true
+
+Output:
+
+.. code-block::
+	{
+	  "acronym": "txx",
+	  "model": "ensemble",
+	  "values": [
+		{
+		  "date": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10,
+			11,
+			12
+		  ],
+		  "value": [
+			0.69,
+			1.15,
+			1.55,
+			1.3,
+			1.31,
+			1.44,
+			1.94,
+			2.56,
+			2.62,
+			1.72,
+			1.13,
+			0.77
+		  ]
+		}
+	  ],
+	  "name": "Monthly maximum temperatures",
+	  "scenario": "rcp85"
+	}
+	
+http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=true&baseline=false
+
+Output:
+
+.. code-block::
+
+
+	{
+	  "acronym": "txx",
+	  "model": "ensemble",
+	  "values": [
+		{
+		  "date": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			8,
+			9,
+			10,
+			11,
+			12
+		  ],
+		  "value": [
+			32.03,
+			32.64,
+			32.71,
+			32.45,
+			32.36,
+			32.41,
+			33.18,
+			33.96,
+			33.84,
+			32.82,
+			32.19,
+			31.89
+		  ]
+		}
+	  ],
+	  "name": "Monthly maximum temperatures",
+	  "scenario": "rcp85"
+	}
+	
+http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=false&baseline=1980-2000
+
+Output:
+
+.. code-block::
+
+	{
+	  "acronym": "txx",
+	  "model": "ensemble",
+	  "values": [
+		{
+		  "date": "avg_2030-2040",
+		  "value": "1.03"
+		}
+	  ],
+	  "name": "Monthly maximum temperatures",
+	  "scenario": "rcp85"
+	}	
+	
+http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=true&baseline=1980-2000
+
+Output:
+
+.. code-block::
+
+	{
+	  "acronym": "txx",
+	  "model": "ensemble",
+	  "values": [
+	{
+      "date": [
+        "2030-01-31",
+        "2030-02-28",
+        "2030-03-31",
+        "2030-04-30",
+        "2030-05-31",
+        "2030-06-30",
+        "2030-07-31",
+        "2030-08-31",	
+	...
+	
+      "value": [
+        0.78,
+        1.58,
+        1.58,
+        0.91,
+        0.92,
+        1.0,
+	  ],
+	  
+	  ...
+	}
+	  "name": "Monthly maximum temperatures",
+	  "scenario": "rcp85"
+	}
+	
+	
+http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=false&baseline=1980-2000
+
+Output:
+
+.. code-block::
+
+	{
+	  "acronym": "txx",
+	  "model": "ensemble",
+	  "values": [
+		{
+		  "date": [
+			2030,
+			2031,
+			2032,
+			2033,
+			2034,
+			2035,
+			2036,
+			2037,
+			2038,
+			2039,
+			2040
+		  ],
+		  "value": [
+			0.73,
+			0.16,
+			1.05,
+			1.4,
+			0.88,
+			1.07,
+			1.12,
+			1.14,
+			1.25,
+			1.22,
+			1.36
+		  ]
+		}
+	  ],
+	  "name": "Monthly maximum temperatures",
+	  "scenario": "rcp85"
+	}	
+	
+http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=false&baseline=false		
+
+Output:
+
+.. code-block::
+	{
+	  "acronym": "txx",
+	  "model": "ensemble",
+	  "values": [
+		{
+		  "date": 2030,
+		  "value": 34.09
+		},
+		{
+		  "date": 2031,
+		  "value": 33.52
+		},
+
+	...
+
+	  ],
+	  "name": "Monthly maximum temperatures",
+	  "scenario": "rcp85"
+	}	
+	
+http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=true&baseline=false
+	
+Output:
+
+.. code-block::
+	{
+	  "acronym": "txx",
+	  "model": "ensemble",
+	  "values": [
+		{
+		  "date": "2030-1",
+		  "value": 31.92
+		},
+		{
+		  "date": "2030-2",
+		  "value": 32.69
+		},
+		{
+		  "date": "2030-3",
+		  "value": 32.65
+		},
+		
+		...
+		
+		{
+		  "date": "2040-12",
+		  "value": 32.15
+		}
+	  ],
+	  "name": "Monthly maximum temperatures",
+	  "scenario": "rcp85"
+	}	
+		
 3. Installing the REST API
 =======================
 The REST API is deployed as a standard webapp for your servlet container / Apache. The technology used is Python, specifically the libraries GDAL, Bottle and rasterstats.
@@ -338,7 +628,7 @@ The Apache configuration may look like this:
     </Directory>
 
 
-**Table 1** Indices, acronyms and units used in the REST API
+**Table 2** Indices, acronyms and units used in the REST API
 
 +----------+------------------------------------------------------------------------------------------------------+---------------------------+
 |Acronyms  | Description                                                                                          |     Units                 |
@@ -443,7 +733,7 @@ The Apache configuration may look like this:
 +----------+------------------------------------------------------------------------------------------------------+---------------------------+
 
 
-**Table 2** Description of the CMIP5 Global Climate Models available in the REST API. Note that the case for the acronyms should be kept when using the API. Spelling errors (including lower/upper case use) will result no data being returned.
+**Table 3** Description of the CMIP5 Global Climate Models available in the REST API. Note that the case for the acronyms should be kept when using the API. Spelling errors (including lower/upper case use) will result no data being returned.
 
 +-------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
 |Acronym      | Full Name Model | Institute                                                                                                                     |
@@ -479,7 +769,7 @@ The Apache configuration may look like this:
 +-------------+-----------------+-------------------------------------------------------------------------------------------------------------------------------+
 
 
-**Table 3** Parameters required for using the REST API
+**Table 4** Parameters required for using the REST API
 
 +--------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+----------+
 | Param.       | Type    | Description                                                                                                                                                                                                                      |Default               | Required |
@@ -503,24 +793,3 @@ The Apache configuration may look like this:
 | climatology  | boolean | Get monthly data. Note: parameter "avg" no work with this option, set avg in false. See how to combine climatology and baseline parameter to obtain different datasets (i.e. time-series, multi-year averages, anomalies, etc).  | –                    | No       |
 +--------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------+----------+
 
-**Table 4** Expected results of combination of parameters: baseline, climatology and avg
-
-+--------------------------+-------------+-------+---------------------------------+
-| baseline                 | climatology |  avg  |  Result                         |
-+==========================+=============+=======+=================================+
-| TRUE (defined by user)   | TRUE        | TRUE  |  multi-year, 12 months, change  |
-+--------------------------+-------------+-------+---------------------------------+
-| TRUE (default 1950-2005) | TRUE        | TRUE  |  multi-year, 12 months, change  |
-+--------------------------+-------------+-------+---------------------------------+
-| FALSE                    | TRUE        | TRUE  |  multi-year, 12 months, future  |
-+--------------------------+-------------+-------+---------------------------------+
-| TRUE(defined by user)    | FALSE       | TRUE  |  multi-year, annual, change     |
-+--------------------------+-------------+-------+---------------------------------+
-| TRUE(defined by user)    | TRUE        | FALSE |  time-series, monthly, change   |
-+--------------------------+-------------+-------+---------------------------------+
-| TRUE(defined by user)    | FALSE       | FALSE |  time-series, annual, change    |
-+--------------------------+-------------+-------+---------------------------------+
-| FALSE                    | FALSE       | TRUE  |  time-series, annual, future    |
-+--------------------------+-------------+-------+---------------------------------+
-| FALSE                    | TRUE        | FALSE |  time-series, monthly, future   |
-+--------------------------+-------------+-------+---------------------------------+
