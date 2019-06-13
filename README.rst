@@ -278,25 +278,25 @@ Example #7
 ----------
 **Table 1** Expected results of combination of parameters: baseline, climatology and avg
 
-+--------------------------+-------------+-------+---------------------------------+
-| baseline                 | climatology |  avg  |  Result                         |
-+==========================+=============+=======+=================================+
-| TRUE(defined by user)    | TRUE        | TRUE  |  multi-year, 12 months, change  |
-+--------------------------+-------------+-------+---------------------------------+
-| Empty(default 1950-2005) | TRUE        | TRUE  |  multi-year, 12 months, change  |
-+--------------------------+-------------+-------+---------------------------------+
-| FALSE                    | TRUE        | TRUE  |  multi-year, 12 months, future  |
-+--------------------------+-------------+-------+---------------------------------+
-| TRUE(defined by user)    | FALSE       | TRUE  |  multi-year, annual, change     |
-+--------------------------+-------------+-------+---------------------------------+
-| TRUE(defined by user)    | TRUE        | FALSE |  time-series, monthly, change   |
-+--------------------------+-------------+-------+---------------------------------+
-| TRUE(defined by user)    | FALSE       | FALSE |  time-series, annual, change    |
-+--------------------------+-------------+-------+---------------------------------+
-| FALSE                    | FALSE       | TRUE  |  time-series, annual, future    |
-+--------------------------+-------------+-------+---------------------------------+
-| FALSE                    | TRUE        | FALSE |  time-series, monthly, future   |
-+--------------------------+-------------+-------+---------------------------------+
++---+--------------------------+-------------+-------+---------------------------------+
+|   | baseline                 | climatology |  avg  |  Result                         |
++===+==========================+=============+=======+=================================+
+| 1 | TRUE(defined by user)    | TRUE        | TRUE  |  multi-year, 12 months, change  |
++---+--------------------------+-------------+-------+---------------------------------+
+| 2 | Empty(default 1950-2005) | TRUE        | TRUE  |  multi-year, 12 months, change  |
++---+--------------------------+-------------+-------+---------------------------------+
+| 3 | FALSE                    | TRUE        | TRUE  |  multi-year, 12 months, future  |
++---+--------------------------+-------------+-------+---------------------------------+
+| 4 | TRUE(defined by user)    | FALSE       | TRUE  |  multi-year, annual, change     |
++---+--------------------------+-------------+-------+---------------------------------+
+| 5 | TRUE(defined by user)    | TRUE        | FALSE |  time-series, monthly, change   |
++---+--------------------------+-------------+-------+---------------------------------+
+| 6 | TRUE(defined by user)    | FALSE       | FALSE |  time-series, annual, change    |
++---+--------------------------+-------------+-------+---------------------------------+
+| 7 | FALSE                    | FALSE       | TRUE  |  time-series, annual, future    |
++---+--------------------------+-------------+-------+---------------------------------+
+| 8 | FALSE                    | TRUE        | FALSE |  time-series, monthly, future   |
++---+--------------------------+-------------+-------+---------------------------------+
 
 	
 http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=true&baseline=1980-2000
@@ -304,6 +304,7 @@ http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx
 Output:
 
 .. code-block::
+
 	{
 	  "acronym": "txx",
 	  "model": "ensemble",
@@ -348,6 +349,7 @@ http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx
 Output:
 
 .. code-block::
+
 	{
 	  "acronym": "txx",
 	  "model": "ensemble",
@@ -392,7 +394,6 @@ http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx
 Output:
 
 .. code-block::
-
 
 	{
 	  "acronym": "txx",
@@ -538,6 +539,7 @@ http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx
 Output:
 
 .. code-block::
+
 	{
 	  "acronym": "txx",
 	  "model": "ensemble",
@@ -563,6 +565,7 @@ http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx
 Output:
 
 .. code-block::
+
 	{
 	  "acronym": "txx",
 	  "model": "ensemble",
