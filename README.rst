@@ -298,7 +298,8 @@ Example #7
 | 8 | FALSE                    | TRUE        | FALSE |  time-series, monthly, future   |
 +---+--------------------------+-------------+-------+---------------------------------+
 
-	
+**Expected results 1**	
+
 http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=true&baseline=1980-2000
 
 Output:
@@ -344,6 +345,8 @@ Output:
 	  "scenario": "rcp85"
 	}
 
+**Expected results 2**	
+
 http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=true
 
 Output:
@@ -388,6 +391,8 @@ Output:
 	  "name": "Monthly maximum temperatures",
 	  "scenario": "rcp85"
 	}
+
+**Expected results 3**	
 	
 http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=true&baseline=false
 
@@ -433,6 +438,8 @@ Output:
 	  "name": "Monthly maximum temperatures",
 	  "scenario": "rcp85"
 	}
+
+**Expected results 4**	
 	
 http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=false&baseline=1980-2000
 
@@ -452,7 +459,9 @@ Output:
 	  "name": "Monthly maximum temperatures",
 	  "scenario": "rcp85"
 	}	
-	
+
+**Expected results 5**	
+
 http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=true&baseline=1980-2000
 
 Output:
@@ -490,7 +499,8 @@ Output:
 	  "scenario": "rcp85"
 	}
 	
-	
+**Expected results 6**
+		
 http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=false&baseline=1980-2000
 
 Output:
@@ -533,7 +543,9 @@ Output:
 	  "name": "Monthly maximum temperatures",
 	  "scenario": "rcp85"
 	}	
-	
+
+**Expected results 7**		
+
 http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=false&baseline=false		
 
 Output:
@@ -559,7 +571,9 @@ Output:
 	  "name": "Monthly maximum temperatures",
 	  "scenario": "rcp85"
 	}	
-	
+
+**Expected results 8**		
+
 http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=true&baseline=false
 	
 Output:
