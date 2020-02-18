@@ -652,19 +652,19 @@ You can run the application with Docker. You have two options for creating an im
 
 Download image from Docker Hub:
 
-.. code: console
+.. code-block::
 
   docker pull stevensotelo/climatewizard:latest
 
 Build image from Dockerfile:
 
-.. code: console
+.. code-block::
   
   docker build -t stevensotelo/climatewizard:latest .
 
 Run a container:
 
-.. code: console
+.. code-block::
   
   docker run -p 8086:80 --name wocat -v /files/path:/mnt -d stevensotelo/climatewizard:latest
 
