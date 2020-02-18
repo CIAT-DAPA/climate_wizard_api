@@ -647,13 +647,26 @@ The Apache configuration may look like this:
 
 3.1 Install with Docker
 =======================
-You can run the application with Docker
+You can run the application with Docker. You have two options for creating an image of this repository:
+
+
+Download image from Docker Hub:
+
+.. code: console
+
+  docker pull stevensotelo/climatewizard:latest
+
+Build image from Dockerfile:
 
 .. code: console
   
-  docker pull stevensotelo/climatewizard:latest
-  docker run -p 8086:80 --name wocat -v /files/path:/mnt -d stevensotelo/climatewizard:latest
+  docker build -t stevensotelo/climatewizard:latest .
 
+Run a container:
+
+.. code: console
+  
+  docker run -p 8086:80 --name wocat -v /files/path:/mnt -d stevensotelo/climatewizard:latest
 
 
 **Table 2** Indices, acronyms and units used in the REST API
