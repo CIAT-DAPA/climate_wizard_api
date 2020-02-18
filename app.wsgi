@@ -1,6 +1,6 @@
 import sys
 
-sys.path.insert(0, "/var/www/html/wocat")
+sys.path.insert(0, "/var/www/html")
 
 import bottle
 import service
