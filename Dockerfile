@@ -39,7 +39,4 @@ EXPOSE 80
 
 CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
 
-# docker build -t stevensotelo/climatewizard:latest .
-
-# docker run -p 8086:80 --name wocat -d stevensotelo/climatewizard:latest
-# docker exec -it wocat bash
+# docker run -p 8080:80 --name wocat -v /dapadfs/data_climatewizard:/mnt/data_climatewizard  -d stevensotelo/climatewizard:latest
