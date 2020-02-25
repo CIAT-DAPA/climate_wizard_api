@@ -12,7 +12,7 @@ The API is developed in the Python language, and has been configured to work thr
 -----------
 The service returns the specific index value using the latitude and longitude values (in decimal degrees) as inputs, along with other parameters (see below and Table 3). The service is hosted online at:
 
-http://maprooms.ciat.cgiar.org/climatewizard/service
+http://climatewizard.ccafs-climate.org:8080/climatewizard/service
 
 2.1 Parameters
 ----------
@@ -78,7 +78,7 @@ Example #1
 ----------
 Querying the average future projected Cooling Degree Days for the period 2040–2069 (the default period for RCP4.5) for the climate model ACCESS1-0 under RCP4.5.
 
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=9.58&lon=-74.41&index=CD18&scenario=rcp45&gcm=ACCESS1-0
+http://climatewizard.ccafs-climate.org:8080/climatewizard/service?lat=9.58&lon=-74.41&index=CD18&scenario=rcp45&gcm=ACCESS1-0
 
 Output:
 
@@ -101,7 +101,7 @@ Example #2
 ----------
 Querying the average Cooling Degree Days for the period 2006–2099 for the climate model ACCESS1-0 and RCP4.5.
 
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=9.58&lon=-74.41&index=CD18&scenario=rcp45&gcm=ACCESS1-0&range=false
+http://climatewizard.ccafs-climate.org:8080/climatewizard/service?lat=9.58&lon=-74.41&index=CD18&scenario=rcp45&gcm=ACCESS1-0&range=false
 
 
 Output:
@@ -126,7 +126,7 @@ Example #3
 ----------
 Querying the yearly values of Cooling Degree Days for the period 1960–1970 (11 years) for the climate model ACCESS1-0.
 
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=9.58&lon=-74.41&index=CD18&scenario=historical&gcm=ACCESS1-0&range=1960-1970&avg=false
+http://climatewizard.ccafs-climate.org:8080/climatewizard/service?lat=9.58&lon=-74.41&index=CD18&scenario=historical&gcm=ACCESS1-0&range=1960-1970&avg=false
 
 
 Output:
@@ -160,7 +160,7 @@ Example #4
 ----------
 Querying the average change in consecutive dry days projected for the period 2041–2060 with respect to the average of a baseline period (1980–2000), for the climate model ACCESS1-0.
 
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=9.58&lon=-74.41&index=CDD&scenario=rcp45&gcm=ACCESS1-0&range=2041-2060&baseline=1980-2000&avg=true
+http://climatewizard.ccafs-climate.org:8080/climatewizard/service?lat=9.58&lon=-74.41&index=CDD&scenario=rcp45&gcm=ACCESS1-0&range=2041-2060&baseline=1980-2000&avg=true
 
 Output:
 
@@ -184,7 +184,7 @@ Example #5
 ----------
 Querying the zonal statistic (std,percentile_25 and percentile_50) using a polygon in consecutive dry days projected for the period 2007-2017 with respect to the average of a baseline period (1980–2000), for the climate model ACCESS1-0
 
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=9.58&lon=-74.41&stats=min,max,median,mean,percentile_5,percentile_25,percentile_75,percentile_95&index=CDD&scenario=rcp45&gcm=ACCESS1-0&range=2041-2060&baseline=1980-2000&avg=false&baseline=false&geojson={%22type%22:%22FeatureCollection%22,%22features%22:[{%22type%22:%22Feature%22,%22properties%22:{},%22geometry%22:{%22type%22:%22Polygon%22,%22coordinates%22:[[[-75.7177734375,4.061535597066106],[-75.7177734375,5.7690358661221355],[-73.8720703125,5.7690358661221355],[-73.8720703125,4.061535597066106],[-75.7177734375,4.061535597066106]]]}}]}
+http://climatewizard.ccafs-climate.org:8080/climatewizard/service?lat=9.58&lon=-74.41&stats=min,max,median,mean,percentile_5,percentile_25,percentile_75,percentile_95&index=CDD&scenario=rcp45&gcm=ACCESS1-0&range=2041-2060&baseline=1980-2000&avg=false&baseline=false&geojson={%22type%22:%22FeatureCollection%22,%22features%22:[{%22type%22:%22Feature%22,%22properties%22:{},%22geometry%22:{%22type%22:%22Polygon%22,%22coordinates%22:[[[-75.7177734375,4.061535597066106],[-75.7177734375,5.7690358661221355],[-73.8720703125,5.7690358661221355],[-73.8720703125,4.061535597066106],[-75.7177734375,4.061535597066106]]]}}]}
 
 Output:
 
@@ -239,7 +239,7 @@ Example #6
 ----------
 Querying the monthly maximum temperature for all months of the decade 2030-2040, for the ensemble model (multimodel-mean).
 
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=true&baseline=false
+http://climatewizard.ccafs-climate.org:8080/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=true&baseline=false
 
 Output:
 
@@ -300,7 +300,7 @@ Example #7
 
 **Expected results #1**	
 
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=true&baseline=1980-2000
+http://climatewizard.ccafs-climate.org:8080/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=true&baseline=1980-2000
 
 Output:
 
@@ -347,7 +347,7 @@ Output:
 
 **Expected results #2**	
 
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=true
+http://climatewizard.ccafs-climate.org:8080/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=true
 
 Output:
 
@@ -394,7 +394,7 @@ Output:
 
 **Expected results #3**	
 	
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=true&baseline=false
+http://climatewizard.ccafs-climate.org:8080/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=true&baseline=false
 
 Output:
 
@@ -441,7 +441,7 @@ Output:
 
 **Expected results #4**	
 	
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=false&baseline=1980-2000
+http://climatewizard.ccafs-climate.org:8080/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=false&baseline=1980-2000
 
 Output:
 
@@ -462,7 +462,7 @@ Output:
 
 **Expected results #5**	
 
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=true&baseline=1980-2000
+http://climatewizard.ccafs-climate.org:8080/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=true&baseline=1980-2000
 
 Output:
 
@@ -501,7 +501,7 @@ Output:
 	
 **Expected results #6**
 		
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=false&baseline=1980-2000
+http://climatewizard.ccafs-climate.org:8080/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=false&baseline=1980-2000
 
 Output:
 
@@ -546,7 +546,7 @@ Output:
 
 **Expected results #7**		
 
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=false&baseline=false		
+http://climatewizard.ccafs-climate.org:8080/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=true&climatology=false&baseline=false		
 
 Output:
 
@@ -574,7 +574,7 @@ Output:
 
 **Expected results #8**		
 
-http://maprooms.ciat.cgiar.org/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=true&baseline=false
+http://climatewizard.ccafs-climate.org:8080/climatewizard/service?lat=3.1&lon=-76.3&index=txx&scenario=rcp85&gcm=ensemble&range=2030-2040&avg=false&climatology=true&baseline=false
 	
 Output:
 
@@ -666,6 +666,7 @@ Run a container:
 
 .. code-block::
   
+  docker pull stevensotelo/climatewizard:latest
   docker run -p 8086:80 --name wocat -v /files/path:/mnt -d stevensotelo/climatewizard:latest
 
 
