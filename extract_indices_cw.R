@@ -41,7 +41,7 @@ for (index in indices){
     for (i in 1:length(gcmList)){
       gcm <- gcmList[i]
       cat(index,scenarios[j],period,gcm)
-      data=fromJSON(paste0("http://climatewizard.ccafs-climate.org:8080/service?lat=",lat,"&lon=",lon,"&index=",index,"&scenario=",scenarios[j],"&gcm=",gcm,"&range=",period,"&avg=false",mon))
+      data=fromJSON(paste0("http://climatewizard.ccafs-climate.org/service?lat=",lat,"&lon=",lon,"&index=",index,"&scenario=",scenarios[j],"&gcm=",gcm,"&range=",period,"&avg=false",mon))
       out <- data$values
       mat <- rbind(mat,cbind(out,index,scenarios[j],period))
       cat("....done!\n")
