@@ -667,7 +667,7 @@ Run a container:
 .. code-block::
   
   docker pull stevensotelo/climatewizard:latest
-  docker run -p 8086:80 --name wocat -v /files/path:/mnt -d stevensotelo/climatewizard:latest
+  docker run -p 8086:80 --name wocat -v /dapadfs/data_climatewizard:/mnt/data_climatewizard -d stevensotelo/climatewizard:latest
 
 
 **Table 2** Indices, acronyms and units used in the REST API
